@@ -12,11 +12,15 @@ import {
   siHtml5,
   siIntel,
   siJavascript,
+  siLinux,
   siNotion,
   siOpenai,
+  siPostgresql,
   siPython,
+  siSqlite,
   siTeamviewer,
   siTrello,
+  siUbuntu,
   type SimpleIcon,
 } from 'simple-icons';
 
@@ -82,4 +86,9 @@ export const icons: IconMap = {
   autocad: fromSimpleIcon(siAutocad),
   trello: fromSimpleIcon(siTrello),
   notion: fromSimpleIcon(siNotion, '#FFFFFF'),
+
+  linux: fromSimpleIcon(siLinux),
+  ubuntu: fromSimpleIcon(siUbuntu),
+  postgresql: fromSimpleIcon(siPostgresql),
+  sqlite: fromSimpleIcon(siSqlite),
 };

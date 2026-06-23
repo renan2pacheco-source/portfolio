@@ -200,6 +200,22 @@ export const skills = [
     ],
   },
   {
+    key: 'linux',
+    label: 'Linux & Shell',
+    items: [
+      { name: 'Linux', iconKey: 'linux' },
+      { name: 'Ubuntu', iconKey: 'ubuntu' },
+    ],
+  },
+  {
+    key: 'db',
+    label: 'Banco de Dados',
+    items: [
+      { name: 'PostgreSQL', iconKey: 'postgresql' },
+      { name: 'SQLite', iconKey: 'sqlite' },
+    ],
+  },
+  {
     key: 'operacional',
     label: 'Rotina operacional',
     items: [
