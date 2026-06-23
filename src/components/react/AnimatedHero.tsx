@@ -6,9 +6,6 @@ interface AnimatedHeroProps {
   name: string;
   tagline: string;
   location: string;
-  civilStatus: string;
-  seeking: string;
-  value: string;
   cvUrl: string;
   skills: string[];
   links: {
@@ -19,12 +16,8 @@ interface AnimatedHeroProps {
 }
 
 export default function AnimatedHero({
-  name,
   tagline,
   location,
-  civilStatus,
-  seeking,
-  value,
   cvUrl,
   skills,
   links,
@@ -40,14 +33,13 @@ export default function AnimatedHero({
         <div className="animate-fade-in-badge inline-flex flex-wrap justify-center items-center gap-2 px-4 py-2 mb-8 ascii-box">
           <MapPin className="w-3.5 h-3.5 text-accent" />
           <span className="text-xs font-mono uppercase tracking-[0.18em] text-accent">
-            Currículo · {location} · {civilStatus}
+            Currículo · {location}
           </span>
         </div>
 
         {/* Heading com RotatingText */}
         <h1
           className="animate-fade-in-heading text-5xl md:text-7xl lg:text-[96px] font-black tracking-[-0.05em] leading-[0.95] mb-6"
-          aria-label={name}
         >
           <span className="block text-text">Renan</span>
           <span className="block text-text">
@@ -60,16 +52,8 @@ export default function AnimatedHero({
           </span>
         </h1>
 
-        <p className="animate-fade-in-sub text-base md:text-xl text-text mb-5 max-w-4xl mx-auto font-semibold leading-relaxed text-pretty">
+        <p className="animate-fade-in-sub text-base md:text-xl text-text mb-12 max-w-4xl mx-auto font-semibold leading-relaxed text-pretty">
           {tagline}
-        </p>
-
-        <p className="animate-fade-in-sub text-sm md:text-base text-text-muted max-w-3xl mx-auto mb-6 text-pretty leading-relaxed">
-          {seeking}
-        </p>
-
-        <p className="animate-fade-in-sub text-xs md:text-sm text-accent max-w-3xl mx-auto mb-12 text-pretty leading-relaxed uppercase tracking-[0.12em]">
-          {value}
         </p>
 
         <div className="animate-fade-in-buttons flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
@@ -78,7 +62,7 @@ export default function AnimatedHero({
             Baixar CV em PDF
           </a>
           <button onClick={scrollToResults} className="btn-secondary group">
-            Como gero resultado
+            Habilidades
             <ArrowDown className="w-4 h-4" />
           </button>
         </div>

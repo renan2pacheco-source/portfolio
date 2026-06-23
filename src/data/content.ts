@@ -9,13 +9,8 @@ export const profile = {
   initials: 'RP',
   title: 'Currículo Profissional',
   tagline:
-    'Perfil multidisciplinar com experiência em suporte técnico, vendas, atendimento, automação, rotinas operacionais e desenvolvimento humano.',
+    'Estudante de Nutrição e Educação Física. Perfil autodidata, com experiência em suporte técnico, vendas, atendimento e rotinas operacionais.',
   location: 'Vale do Anari, RO — Brasil',
-  civilStatus: 'Solteiro',
-  seeking:
-    'Busco oportunidades onde minha capacidade de aprender rápido, organizar processos e aplicar tecnologia gere resultado real para a empresa.',
-  value:
-    'Posso contribuir melhorando fluxos de trabalho, reduzindo tarefas repetitivas, apoiando clientes e organizando informações para decisões mais rápidas.',
   email: 'renan.nunes.pacheco@gmail.com',
   whatsapp: {
     number: '5569992114236', // DDI 55 + DDD 69 + número
@@ -28,16 +23,16 @@ export const profile = {
     email: 'mailto:renan.nunes.pacheco@gmail.com',
   },
   cvUrl: '/cv-renan-nunes-pacheco.pdf',
-  skills: ['Suporte', 'Atendimento', 'Autonomia'],
+  skills: ['Suporte', 'Vendas', 'Office', 'IA'],
 };
 
 // Bio curta pra seção "Sobre"
 export const bio = {
-  intro: '22 anos, profissional multidisciplinar com foco em resultado prático.',
+  intro: '22 anos, estudante de Nutrição e Educação Física, autodidata em tecnologia.',
   paragraphs: [
     'Tenho experiência com suporte técnico de computadores, vendas, trabalho autônomo/freelancer, atuação como personal trainer e rotina operacional em pavimentação urbana.',
-    'Sou estudante de Nutrição e tenho formação em Educação Física, o que reforça disciplina, comunicação com pessoas e visão prática de atendimento, saúde e rotina.',
-    'Uso tecnologia como ferramenta de produtividade: organização de dados, automação de tarefas, criação de documentos, atendimento, planilhas, materiais visuais e melhoria de processos internos.',
+    'Cursando Nutrição e Educação Física. Sou autodidata em tecnologia: aprendi a usar ferramentas de produtividade, IA, design, planilhas e programação básica de forma independente.',
+    'Tecnologia, pra mim, é ferramenta de trabalho: uso pra organizar informações, automatizar tarefas, criar documentos, apoiar atendimento e melhorar processos do dia a dia.',
   ],
 };
 
@@ -103,18 +98,18 @@ export const experience = [
 // Formação acadêmica
 export const education = [
   {
-    course: 'Educação Física',
-    institution: 'Curso Livre',
-    period: 'Concluído',
-    status: 'Concluído',
-    note: 'Base pra entender corpo, movimento e processo.',
-  },
-  {
     course: 'Nutrição',
     institution: 'UniCesumar',
     period: 'Cursando',
     status: 'Em andamento',
-    note: 'Formação fora da área tech — traz olhar de saúde e rotina.',
+    note: 'Foco em saúde, alimentação e rotina.',
+  },
+  {
+    course: 'Educação Física',
+    institution: 'Curso Livre',
+    period: 'Cursando',
+    status: 'Em andamento',
+    note: 'Movimento, treino e acompanhamento de pessoas.',
   },
 ];
 

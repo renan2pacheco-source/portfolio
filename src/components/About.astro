@@ -29,15 +29,9 @@ import { profile, bio } from '../data/content';
         <div class="space-y-4 text-text-muted leading-relaxed text-pretty text-sm md:text-base">
           {bio.paragraphs.map((p) => <p>{p}</p>)}
 
-          <div class="pt-6 grid grid-cols-2 gap-4 ascii-box p-4 mt-6">
-            <div>
-              <div class="text-label mb-1">// location</div>
-              <div class="text-text text-sm">{profile.location}</div>
-            </div>
-            <div>
-              <div class="text-label mb-1">// status</div>
-              <div class="text-accent text-sm">● disponível</div>
-            </div>
+          <div class="pt-6 ascii-box p-4 mt-6">
+            <div class="text-label mb-1">// location</div>
+            <div class="text-text text-sm">{profile.location}</div>
           </div>
         </div>
       </AnimatedSection>
