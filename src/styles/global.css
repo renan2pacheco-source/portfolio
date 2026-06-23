@@ -79,7 +79,7 @@
     background-color: var(--color-bg-surface);
     border: 1px solid color-mix(in srgb, var(--color-accent) 18%, var(--color-border));
     padding: 1.5rem;
-    transition: all 0.2s;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .card-hover:hover {
@@ -97,13 +97,20 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.875rem;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
     background-color: var(--color-accent);
     color: var(--color-bg);
   }
   .btn-primary:hover {
     background-color: var(--color-accent-glow);
     box-shadow: 0 0 28px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--color-accent-glow);
+    outline-offset: 2px;
   }
 
   .btn-secondary {
@@ -116,12 +123,19 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.875rem;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease, transform 0.15s ease;
     border: 1px solid var(--color-accent);
     color: var(--color-accent);
   }
   .btn-secondary:hover {
     background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+  .btn-secondary:active {
+    transform: translateY(1px);
+  }
+  .btn-secondary:focus-visible {
+    outline: 2px solid var(--color-accent-glow);
+    outline-offset: 2px;
   }
 
   .section {
