@@ -197,4 +197,61 @@
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
   .animate-cursor-blink { animation: cursor-blink 1s steps(1) infinite; }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* === Animações fluidas (do template Cliste v0) === */
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes nav-item-in {
+  0%   { opacity: 0; transform: translateY(-6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-badge    { animation: fade-up 0.8s 0.1s ease-out both; }
+.animate-fade-in-heading  { animation: fade-up 0.9s 0.25s ease-out both; }
+.animate-fade-in-sub       { animation: fade-up 0.8s 0.45s ease-out both; }
+.animate-fade-in-buttons   { animation: fade-up 0.8s 0.65s ease-out both; }
+.animate-fade-in-trust     { animation: fade-in 1.0s 0.85s ease-out both; }
+.animate-fade-in-section   { animation: fade-up 0.9s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-badge,
+  .animate-fade-in-heading,
+  .animate-fade-in-sub,
+  .animate-fade-in-buttons,
+  .animate-fade-in-trust,
+  .animate-fade-in-section {
+    animation: none;
+  }
+}
+
+/* RotatingText container */
+.text-rotate {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  white-space: pre-wrap;
+  position: relative;
+  vertical-align: baseline;
+}
+.text-rotate > span {
+  display: inline-flex;
+  align-items: baseline;
 }

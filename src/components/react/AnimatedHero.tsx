@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Download, ArrowDown, MapPin, MessageCircle, Mail } from 'lucide-react';
+import RotatingText from './RotatingText';
 
 interface AnimatedHeroProps {
   name: string;
@@ -9,6 +10,7 @@ interface AnimatedHeroProps {
   seeking: string;
   value: string;
   cvUrl: string;
+  skills: string[];
   links: {
     instagram: string;
     whatsapp: string;
@@ -24,6 +26,7 @@ export default function AnimatedHero({
   seeking,
   value,
   cvUrl,
+  skills,
   links,
 }: AnimatedHeroProps) {
   const scrollToResults = () => {
@@ -31,36 +34,45 @@ export default function AnimatedHero({
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-20 overflow-hidden">
       <div className="relative container-narrow text-center">
-        <div className="inline-flex flex-wrap justify-center items-center gap-2 px-4 py-2 mb-8 ascii-box">
+        {/* Badge — fade-up staggered */}
+        <div className="animate-fade-in-badge inline-flex flex-wrap justify-center items-center gap-2 px-4 py-2 mb-8 ascii-box">
           <MapPin className="w-3.5 h-3.5 text-accent" />
           <span className="text-xs font-mono uppercase tracking-[0.18em] text-accent">
             Currículo · {location} · {civilStatus}
           </span>
         </div>
 
+        {/* Heading com RotatingText */}
         <h1
-          className="text-6xl md:text-8xl lg:text-[112px] font-black tracking-[-0.08em] leading-[0.86] mb-8"
+          className="animate-fade-in-heading text-5xl md:text-7xl lg:text-[96px] font-black tracking-[-0.05em] leading-[0.95] mb-6"
           aria-label={name}
         >
           <span className="block text-text">Renan</span>
-          <span className="block gradient-text">Pacheco</span>
+          <span className="block text-text">
+            <RotatingText
+              texts={skills}
+              mainClassName="ml-1 md:ml-2 px-3 md:px-4 py-1 md:py-2 bg-accent text-bg rounded-xl shadow-[0_0_40px_rgba(255,215,0,0.25)] align-baseline"
+              staggerDuration={0.025}
+              interval={2400}
+            />
+          </span>
         </h1>
 
-        <p className="text-base md:text-xl text-text mb-5 max-w-4xl mx-auto font-semibold leading-relaxed text-pretty">
+        <p className="animate-fade-in-sub text-base md:text-xl text-text mb-5 max-w-4xl mx-auto font-semibold leading-relaxed text-pretty">
           {tagline}
         </p>
 
-        <p className="text-sm md:text-base text-text-muted max-w-3xl mx-auto mb-6 text-pretty leading-relaxed">
+        <p className="animate-fade-in-sub text-sm md:text-base text-text-muted max-w-3xl mx-auto mb-6 text-pretty leading-relaxed">
           {seeking}
         </p>
 
-        <p className="text-xs md:text-sm text-accent max-w-3xl mx-auto mb-12 text-pretty leading-relaxed uppercase tracking-[0.12em]">
+        <p className="animate-fade-in-sub text-xs md:text-sm text-accent max-w-3xl mx-auto mb-12 text-pretty leading-relaxed uppercase tracking-[0.12em]">
           {value}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <div className="animate-fade-in-buttons flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a href={cvUrl} download className="btn-primary group">
             <Download className="w-4 h-4" />
             Baixar CV em PDF
@@ -71,7 +83,7 @@ export default function AnimatedHero({
           </button>
         </div>
 
-        <div className="flex items-center justify-center gap-2">
+        <div className="animate-fade-in-trust flex items-center justify-center gap-2">
           {links.whatsapp && (
             <a
               href={links.whatsapp}

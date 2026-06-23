@@ -8,19 +8,22 @@ import Projects from '../components/Projects.astro';
 import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import PageTransition from '../components/react/PageTransition';
 ---
 
 <BaseLayout>
-  <div id="top">
-    <Navbar />
-    <main>
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
-    </main>
-    <Footer />
-  </div>
+  <PageTransition client:load>
+    <div id="top">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  </PageTransition>
 </BaseLayout>

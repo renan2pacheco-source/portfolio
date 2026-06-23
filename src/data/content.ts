@@ -28,6 +28,7 @@ export const profile = {
     email: 'mailto:renan.nunes.pacheco@gmail.com',
   },
   cvUrl: '/cv-renan-nunes-pacheco.pdf',
+  skills: ['Suporte', 'Atendimento', 'Autonomia'],
 };
 
 // Bio curta pra seção "Sobre"
