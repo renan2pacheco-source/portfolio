@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion';
 import { Download, ArrowDown, MapPin, MessageCircle, Mail } from 'lucide-react';
-import RotatingText from './RotatingText';
 
 interface AnimatedHeroProps {
   name: string;
   tagline: string;
   location: string;
   cvUrl: string;
-  skills: string[];
   links: {
     instagram: string;
     whatsapp: string;
@@ -19,7 +17,6 @@ export default function AnimatedHero({
   tagline,
   location,
   cvUrl,
-  skills,
   links,
 }: AnimatedHeroProps) {
   const scrollToResults = () => {
@@ -29,7 +26,6 @@ export default function AnimatedHero({
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-20 overflow-hidden">
       <div className="relative container-narrow text-center">
-        {/* Badge — fade-up staggered */}
         <div className="animate-fade-in-badge inline-flex flex-wrap justify-center items-center gap-2 px-4 py-2 mb-8 ascii-box">
           <MapPin className="w-3.5 h-3.5 text-accent" />
           <span className="text-xs font-mono uppercase tracking-[0.18em] text-accent">
@@ -37,19 +33,9 @@ export default function AnimatedHero({
           </span>
         </div>
 
-        {/* Heading com RotatingText */}
-        <h1
-          className="animate-fade-in-heading text-5xl md:text-7xl lg:text-[96px] font-black tracking-[-0.05em] leading-[0.95] mb-6"
-        >
+        <h1 className="animate-fade-in-heading text-5xl md:text-7xl lg:text-[96px] font-black tracking-[-0.05em] leading-[0.95] mb-6">
           <span className="block text-text">Renan</span>
-          <span className="block text-text">
-            <RotatingText
-              texts={skills}
-              mainClassName="ml-1 md:ml-2 px-3 md:px-4 py-1 md:py-2 bg-accent text-bg rounded-xl shadow-[0_0_40px_rgba(255,215,0,0.25)] align-baseline"
-              staggerDuration={0.025}
-              interval={2400}
-            />
-          </span>
+          <span className="block gradient-text">Nunes Pacheco</span>
         </h1>
 
         <p className="animate-fade-in-sub text-base md:text-xl text-text mb-12 max-w-4xl mx-auto font-semibold leading-relaxed text-pretty">

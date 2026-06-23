@@ -242,16 +242,4 @@
   }
 }
 
-/* RotatingText container */
-.text-rotate {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  white-space: pre-wrap;
-  position: relative;
-  vertical-align: baseline;
-}
-.text-rotate > span {
-  display: inline-flex;
-  align-items: baseline;
-}
+/* RotatingText removido — não utilizado */
