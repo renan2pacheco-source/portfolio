@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import NeuralBackground from '../components/react/NeuralBackground';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Renan Pacheco — Entusiasta em Tecnologia',
+  description = 'Portfólio e currículo de Renan Pacheco. Estudante multidisciplinar: programação full stack, design gráfico, IA generativa, nutrição e educação física.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-bg text-text antialiased">
+    <!-- Neural background (client-only, Three.js) -->
+    <NeuralBackground client:only="react" />
+
+    <!-- Conteúdo acima do background -->
+    <div class="relative" style="z-index: 2;">
+      <slot />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+---
+import { profile } from '../data/content';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border-subtle py-8 px-6 mt-20">
+  <div class="container-narrow flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-text-subtle">
+    <div>
+      <span class="text-accent">$</span> © {year} {profile.fullName} //
+      construído com Astro + React + Three.js
+    </div>
+    <div class="flex items-center gap-4">
+      <a
+        href={profile.cvUrl}
+        download
+        class="hover:text-accent transition-colors"
+      >
+        [cv.pdf]
+      </a>
+      <a
+        href={profile.links.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-accent transition-colors"
+      >
+        [instagram]
+      </a>
+    </div>
+  </div>
+</footer>

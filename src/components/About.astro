@@ -1,0 +1,46 @@
+---
+import AnimatedSection from './react/AnimatedSection';
+import SectionHeader from './SectionHeader.astro';
+import { profile, bio } from '../data/content';
+---
+
+<section id="sobre" class="section">
+  <div class="container-narrow">
+    <AnimatedSection client:visible>
+      <SectionHeader command="cat about.md" index="01" total="05">
+        <h2 class="section-title text-balance">
+          Quem <span class="text-accent">{'<'}</span>estou<span class="text-accent">{'/>'}</span>.
+        </h2>
+        <p class="section-subtitle mb-12 text-pretty">{bio.intro}</p>
+      </SectionHeader>
+    </AnimatedSection>
+
+    <div class="grid md:grid-cols-[160px_1fr] gap-8 md:gap-12 items-start">
+      <AnimatedSection client:visible delay={0.2}>
+        <div class="ascii-box p-6 flex items-center justify-center aspect-square">
+          <div class="text-center">
+            <div class="text-5xl font-bold gradient-text font-mono mb-2">{profile.initials}</div>
+            <div class="text-label">// user</div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection client:visible delay={0.3}>
+        <div class="space-y-4 text-text-muted leading-relaxed text-pretty font-mono text-sm md:text-[15px]">
+          {bio.paragraphs.map((p) => <p>{p}</p>)}
+
+          <div class="pt-6 grid grid-cols-2 gap-4 ascii-box p-4 mt-6">
+            <div>
+              <div class="text-label mb-1">// location</div>
+              <div class="text-text text-sm">{profile.location}</div>
+            </div>
+            <div>
+              <div class="text-label mb-1">// status</div>
+              <div class="text-accent text-sm">● online</div>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+    </div>
+  </div>
+</section>

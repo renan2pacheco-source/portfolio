@@ -1,0 +1,71 @@
+---
+import AnimatedSection from './react/AnimatedSection';
+import SectionHeader from './SectionHeader.astro';
+import InfoCard from './InfoCard.astro';
+import { experience, education } from '../data/content';
+import { Briefcase, GraduationCap } from 'lucide-react';
+---
+
+<section id="experiencia" class="section">
+  <div class="container-narrow">
+    <AnimatedSection client:visible>
+      <SectionHeader command="cat experience.log" index="02" total="05">
+        <h2 class="section-title text-balance">
+          Trajetória<span class="text-accent">.</span>
+        </h2>
+        <p class="section-subtitle mb-16 text-pretty">
+          Caminho multidisciplinar — engenharia, tech, design e estudo contínuo.
+        </p>
+      </SectionHeader>
+    </AnimatedSection>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Experiência -->
+      <AnimatedSection client:visible delay={0.1}>
+        <div class="flex items-center gap-3 mb-6 font-mono">
+          <Briefcase className="w-4 h-4 text-accent" />
+          <h3 class="text-sm uppercase tracking-widest text-text-muted">// experiência</h3>
+        </div>
+
+        <div class="space-y-4">
+          {experience.map((job) => (
+            <InfoCard
+              title={job.role}
+              subtitle={job.company}
+              badge={job.period}
+              label={job.location}
+            >
+              <ul class="space-y-2 font-mono text-xs">
+                {job.highlights.map((h) => (
+                  <li class="text-text-muted flex gap-2 leading-relaxed">
+                    <span class="text-accent">▸</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </InfoCard>
+          ))}
+        </div>
+      </AnimatedSection>
+
+      <!-- Formação -->
+      <AnimatedSection client:visible delay={0.2}>
+        <div class="flex items-center gap-3 mb-6 font-mono">
+          <GraduationCap className="w-4 h-4 text-accent" />
+          <h3 class="text-sm uppercase tracking-widest text-text-muted">// formação</h3>
+        </div>
+
+        <div class="space-y-4">
+          {education.map((ed) => (
+            <InfoCard
+              title={ed.course}
+              subtitle={ed.institution}
+              badge={ed.status}
+              label={ed.note}
+            />
+          ))}
+        </div>
+      </AnimatedSection>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+import AnimatedHero from './react/AnimatedHero';
+import { profile } from '../data/content';
+---
+
+<AnimatedHero
+  client:load
+  name={profile.name}
+  tagline={profile.tagline}
+  cvUrl={profile.cvUrl}
+  links={{
+    instagram: profile.links.instagram,
+    whatsapp: profile.links.whatsapp,
+    email: profile.links.email,
+  }}
+/>

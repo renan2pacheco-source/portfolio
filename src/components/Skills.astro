@@ -1,0 +1,71 @@
+---
+import AnimatedSection from './react/AnimatedSection';
+import SectionHeader from './SectionHeader.astro';
+import { skills } from '../data/content';
+import { icons } from '../lib/icons';
+
+const groupCount = skills.length;
+const totalItems = skills.reduce((acc, g) => acc + g.items.length, 0);
+---
+
+<section id="skills" class="section">
+  <div class="container-narrow">
+    <AnimatedSection client:visible>
+      <SectionHeader command="cat skills.txt" index="03" total="05">
+        <h2 class="section-title text-balance">
+          Stack {'&'} ferramentas<span class="text-accent">.</span>
+        </h2>
+        <p class="section-subtitle mb-12 text-pretty">
+          O que eu uso pra construir, criar e resolver problemas.
+        </p>
+      </SectionHeader>
+    </AnimatedSection>
+
+    <!-- Terminal `ls` listing -->
+    <AnimatedSection client:visible delay={0.1}>
+      <div class="ascii-box p-6 md:p-8 font-mono">
+        <div class="text-text-subtle text-xs mb-6 select-none">
+          $ ls ~/skills --group-by=category
+        </div>
+
+        <div class="space-y-6">
+          {skills.map((group) => (
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-accent">[{group.key}/]</span>
+                <span class="text-text-muted text-xs uppercase tracking-widest">
+                  {group.label}
+                </span>
+                <div class="h-px flex-1 bg-border-subtle"></div>
+                <span class="text-text-subtle text-xs">
+                  {group.items.length} items
+                </span>
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                {group.items.map((skill) => {
+                  const def = icons[skill.iconKey];
+                  return (
+                    <div class="flex items-center gap-2 group" title={skill.name}>
+                      <span
+                        class="inline-flex items-center justify-center w-10 h-10 ascii-box group-hover:border-accent transition-all"
+                        aria-label={skill.name}
+                        set:html={def?.svg || ''}
+                      />
+                      <span class="text-xs text-text-muted group-hover:text-text transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-text-subtle text-xs mt-6 select-none">
+          {groupCount} directories, {totalItems} files
+        </div>
+      </div>
+    </AnimatedSection>
+  </div>
+</section>
