@@ -1,10 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Download, ArrowDown, Instagram, MessageCircle, Mail } from 'lucide-react';
+import { Download, ArrowDown, MapPin, MessageCircle, Mail } from 'lucide-react';
 
 interface AnimatedHeroProps {
   name: string;
   tagline: string;
+  location: string;
+  civilStatus: string;
+  seeking: string;
+  value: string;
   cvUrl: string;
   links: {
     instagram: string;
@@ -13,142 +16,62 @@ interface AnimatedHeroProps {
   };
 }
 
-const ROLES = [
-  'Entusiasta em Tecnologia',
-  'Designer Gráfico',
-  'Dev Full Stack',
-  'Estudante de Nutrição',
-  'Apaixonado por IA',
-];
-
-export default function AnimatedHero({ name, tagline, cvUrl, links }: AnimatedHeroProps) {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Typewriter effect
-  useEffect(() => {
-    const currentRole = ROLES[roleIndex];
-
-    const tick = () => {
-      if (!isDeleting) {
-        if (displayedText.length < currentRole.length) {
-          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
-          intervalRef.current = setTimeout(tick, 75);
-        } else {
-          intervalRef.current = setTimeout(() => setIsDeleting(true), 1800);
-        }
-      } else {
-        if (displayedText.length > 0) {
-          setDisplayedText(currentRole.slice(0, displayedText.length - 1));
-          intervalRef.current = setTimeout(tick, 35);
-        } else {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % ROLES.length);
-        }
-      }
-    };
-
-    intervalRef.current = setTimeout(tick, isDeleting ? 35 : 75);
-    return () => {
-      if (intervalRef.current) clearTimeout(intervalRef.current);
-    };
-  }, [displayedText, isDeleting, roleIndex]);
-
-  const scrollToProjects = () => {
-    document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' });
+export default function AnimatedHero({
+  name,
+  tagline,
+  location,
+  civilStatus,
+  seeking,
+  value,
+  cvUrl,
+  links,
+}: AnimatedHeroProps) {
+  const scrollToResults = () => {
+    document.getElementById('resultados')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
       <div className="relative container-narrow text-center">
-        {/* Terminal-style status pill */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 ascii-box"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+        <div className="inline-flex flex-wrap justify-center items-center gap-2 px-4 py-2 mb-8 ascii-box">
+          <MapPin className="w-3.5 h-3.5 text-accent" />
+          <span className="text-xs font-mono uppercase tracking-[0.18em] text-accent">
+            Currículo · {location} · {civilStatus}
           </span>
-          <span className="text-xs font-mono uppercase tracking-wider text-accent">
-            online // disponível pra conversar
-          </span>
-        </motion.div>
+        </div>
 
-        {/* Nome com cursor */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 font-mono"
+        <h1
+          className="text-6xl md:text-8xl lg:text-[112px] font-black tracking-[-0.08em] leading-[0.86] mb-8"
+          aria-label={name}
         >
-          <span className="gradient-text">$ {name}</span>
-          <span className="cursor text-accent" />
-        </motion.h1>
+          <span className="block text-text">Renan</span>
+          <span className="block gradient-text">Pacheco</span>
+        </h1>
 
-        {/* Typewriter role */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-3xl text-text-muted mb-6 h-10 flex items-center justify-center gap-2 font-mono"
-        >
-          <span className="text-accent">{'>'}</span>
-          <span className="text-text font-bold">
-            {displayedText}
-            <span className="inline-block w-0.5 h-7 bg-accent ml-1 animate-cursor-blink" />
-          </span>
-        </motion.div>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-sm md:text-base text-text-muted max-w-2xl mx-auto mb-12 text-pretty leading-relaxed"
-        >
+        <p className="text-base md:text-xl text-text mb-5 max-w-4xl mx-auto font-semibold leading-relaxed text-pretty">
           {tagline}
-        </motion.p>
+        </p>
 
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
-        >
+        <p className="text-sm md:text-base text-text-muted max-w-3xl mx-auto mb-6 text-pretty leading-relaxed">
+          {seeking}
+        </p>
+
+        <p className="text-xs md:text-sm text-accent max-w-3xl mx-auto mb-12 text-pretty leading-relaxed uppercase tracking-[0.12em]">
+          {value}
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a href={cvUrl} download className="btn-primary group">
             <Download className="w-4 h-4" />
             Baixar CV em PDF
           </a>
-          <button onClick={scrollToProjects} className="btn-secondary group">
-            Ver projetos
+          <button onClick={scrollToResults} className="btn-secondary group">
+            Como gero resultado
             <ArrowDown className="w-4 h-4" />
           </button>
-        </motion.div>
+        </div>
 
-        {/* Social links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex items-center justify-center gap-2"
-        >
-          {links.instagram && (
-            <a
-              href={links.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ascii-box p-3 hover:border-accent hover:text-accent transition-all"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-          )}
+        <div className="flex items-center justify-center gap-2">
           {links.whatsapp && (
             <a
               href={links.whatsapp}
@@ -167,10 +90,9 @@ export default function AnimatedHero({ name, tagline, cvUrl, links }: AnimatedHe
           >
             <Mail className="w-4 h-4" />
           </a>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}

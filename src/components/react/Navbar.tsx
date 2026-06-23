@@ -5,8 +5,8 @@ import { Menu, X } from 'lucide-react';
 const NAV_ITEMS = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Experiência', href: '#experiencia' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Resultado', href: '#resultados' },
+  { label: 'Ferramentas', href: '#skills' },
   { label: 'Contato', href: '#contato' },
 ];
 
@@ -44,11 +44,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container-narrow">
-        <div
-          className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300 ${
-            isScrolled ? 'glass-strong shadow-2xl shadow-black/20' : 'bg-transparent'
-          }`}
-        >
+        <div className="flex items-center justify-between px-6 py-3 border border-border-subtle bg-black/70 backdrop-blur-md transition-all duration-300">
           <a href="#top" className="text-lg font-bold gradient-text">
             RP<span className="text-accent">.</span>
           </a>
@@ -59,7 +55,7 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm text-text-muted hover:text-text rounded-full hover:bg-bg-elevated/50 transition-all"
+                className="px-4 py-2 text-sm text-text-muted hover:text-accent transition-all"
               >
                 {item.label}
               </a>
@@ -83,14 +79,14 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="md:hidden mt-2 glass-strong rounded-2xl p-2"
+              className="md:hidden mt-2 border border-border-subtle bg-black/90 backdrop-blur-md p-2"
             >
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileOpen(false)}
-                  className="block px-4 py-3 text-sm text-text-muted hover:text-text hover:bg-bg-elevated/50 rounded-xl transition-all"
+                  className="block px-4 py-3 text-sm text-text-muted hover:text-accent transition-all"
                 >
                   {item.label}
                 </a>

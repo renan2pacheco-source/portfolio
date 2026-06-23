@@ -9,12 +9,12 @@ import { Briefcase, GraduationCap } from 'lucide-react';
 <section id="experiencia" class="section">
   <div class="container-narrow">
     <AnimatedSection client:visible>
-      <SectionHeader command="cat experience.log" index="02" total="05">
+      <SectionHeader command="cat experiencia.log" index="02" total="05">
         <h2 class="section-title text-balance">
           Trajetória<span class="text-accent">.</span>
         </h2>
         <p class="section-subtitle mb-16 text-pretty">
-          Caminho multidisciplinar — engenharia, tech, design e estudo contínuo.
+          Experiências práticas em operação, suporte, vendas, atendimento, trabalho autônomo e desenvolvimento físico.
         </p>
       </SectionHeader>
     </AnimatedSection>
@@ -35,7 +35,7 @@ import { Briefcase, GraduationCap } from 'lucide-react';
               badge={job.period}
               label={job.location}
             >
-              <ul class="space-y-2 font-mono text-xs">
+              <ul class="space-y-2 text-xs md:text-sm">
                 {job.highlights.map((h) => (
                   <li class="text-text-muted flex gap-2 leading-relaxed">
                     <span class="text-accent">▸</span>

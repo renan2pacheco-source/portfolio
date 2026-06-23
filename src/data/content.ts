@@ -7,11 +7,16 @@ export const profile = {
   name: 'Renan Pacheco',
   fullName: 'Renan Nunes Pacheco',
   initials: 'RP',
-  title: 'Entusiasta em Tecnologia',
+  title: 'Currículo Profissional',
   tagline:
-    'Estudante multidisciplinar, curioso por tecnologia. Programação, design, IA e os mundos paralelos de nutrição e educação física.',
-  location: 'Maringá, PR — Brasil',
-  email: 'renan.nunes.pacheco@gmail.com', // TODO: revisar
+    'Perfil multidisciplinar com experiência em suporte técnico, vendas, atendimento, automação, rotinas operacionais e desenvolvimento humano.',
+  location: 'Vale do Anari, RO — Brasil',
+  civilStatus: 'Solteiro',
+  seeking:
+    'Busco oportunidades onde minha capacidade de aprender rápido, organizar processos e aplicar tecnologia gere resultado real para a empresa.',
+  value:
+    'Posso contribuir melhorando fluxos de trabalho, reduzindo tarefas repetitivas, apoiando clientes e organizando informações para decisões mais rápidas.',
+  email: 'renan.nunes.pacheco@gmail.com',
   whatsapp: {
     number: '5569992114236', // DDI 55 + DDD 69 + número
     display: '(69) 99211-4236',
@@ -27,25 +32,69 @@ export const profile = {
 
 // Bio curta pra seção "Sobre"
 export const bio = {
-  intro: '22 anos, estudante multidisciplinar e entusiasta de tecnologia.',
+  intro: '22 anos, profissional multidisciplinar com foco em resultado prático.',
   paragraphs: [
-    'Curso programação full stack na UniCesumar, ao mesmo tempo que mergulho em design gráfico, IA generativa e criação de conteúdo visual na Núcleo Digital — meu laboratório de ideias.',
-    'Carrego também a experiência prática de trabalhar com pavimentação urbana na Runas, onde engenharia civil me ensinou a ler plantas e entregar sob prazo.',
-    'TDAH diagnosticado: pra mim, hiperfoco é superpoder em problemas mal-definidos. Mergulho fundo, não largo até resolver.',
+    'Tenho experiência com suporte técnico de computadores, vendas, trabalho autônomo/freelancer, atuação como personal trainer e rotina operacional em pavimentação urbana.',
+    'Sou estudante de Nutrição e tenho formação em Educação Física, o que reforça disciplina, comunicação com pessoas e visão prática de atendimento, saúde e rotina.',
+    'Uso tecnologia como ferramenta de produtividade: organização de dados, automação de tarefas, criação de documentos, atendimento, planilhas, materiais visuais e melhoria de processos internos.',
   ],
 };
 
 // Experiência profissional
 export const experience = [
   {
-    role: 'Engenharia Civil / Pavimentação',
+    role: 'Rotina Operacional / Pavimentação Urbana',
     company: 'Runas',
     period: 'Atual',
-    location: 'Maringá, PR',
+    location: 'Vale do Anari, RO',
     highlights: [
-      'Projetos de pavimentação urbana para prefeituras',
-      'Leitura crítica de plantas e medições',
-      'Acompanhamento de obras e comunicação com contratantes',
+      'Apoio em projetos e rotinas de pavimentação urbana',
+      'Leitura de plantas, medições e organização de informações técnicas',
+      'Acompanhamento de demandas com foco em prazo, clareza e responsabilidade',
+    ],
+  },
+  {
+    role: 'Suporte Técnico de Computadores',
+    company: 'Atendimento técnico',
+    period: 'Experiência prática',
+    location: 'RO',
+    highlights: [
+      'Diagnóstico e resolução de problemas em computadores e sistemas',
+      'Formatação, instalação, manutenção básica e orientação ao usuário',
+      'Atendimento claro para pessoas com diferentes níveis de conhecimento técnico',
+    ],
+  },
+  {
+    role: 'Vendas e Atendimento',
+    company: 'Experiência comercial',
+    period: 'Experiência prática',
+    location: 'RO',
+    highlights: [
+      'Comunicação direta com clientes e identificação de necessidades',
+      'Apoio ao processo de venda, negociação e pós-atendimento',
+      'Organização de informações para melhorar acompanhamento e conversão',
+    ],
+  },
+  {
+    role: 'Freelancer Autônomo',
+    company: 'Serviços independentes',
+    period: 'Experiência prática',
+    location: 'Remoto / presencial',
+    highlights: [
+      'Entrega de serviços com autonomia, responsabilidade e adaptação ao cliente',
+      'Criação de materiais digitais, organização de demandas e suporte operacional',
+      'Uso de ferramentas digitais para resolver problemas com baixo custo e agilidade',
+    ],
+  },
+  {
+    role: 'Personal Trainer',
+    company: 'Atendimento individual',
+    period: 'Experiência prática',
+    location: 'RO',
+    highlights: [
+      'Planejamento e acompanhamento de treinos com foco em objetivo e rotina',
+      'Comunicação, disciplina e adaptação conforme perfil de cada pessoa',
+      'Visão prática de saúde, constância e evolução mensurável',
     ],
   },
 ];
@@ -66,64 +115,74 @@ export const education = [
     status: 'Em andamento',
     note: 'Formação fora da área tech — traz olhar de saúde e rotina.',
   },
-  {
-    course: 'Programação Full Stack',
-    institution: 'UniCesumar',
-    period: 'Cursando',
-    status: 'Em andamento',
-    note: 'TypeScript, React, Node.js, Python. Foco em web e IA.',
-  },
 ];
 
-// Projetos (tech/IA/lazer)
-export const projects = [
+// Competências aplicadas em ambiente profissional
+export const results = [
   {
-    name: 'Núcleo Digital',
+    name: 'Melhoria de fluxo de trabalho',
     description:
-      'Meu laboratório de conteúdo visual, identidade de marca e IA aplicada. Carrosséis para Instagram com prompt pack proprietário.',
-    tags: ['IA Generativa', 'Design', 'Branding'],
-    link: 'https://instagram.com/nucleo_digit4l',
-    featured: true,
-  },
-  {
-    name: 'Segundo Cérebro (Obsidian Vault)',
-    description:
-      'Vault pessoal no Obsidian como centro de comando: memória, projetos, IA, automações. Skills customizadas e workflows.',
-    tags: ['Obsidian', 'Markdown', 'IA', 'Automação'],
+      'Mapeio tarefas repetitivas, organizo etapas e proponho formas simples de reduzir retrabalho, atrasos e perda de informação.',
+    tags: ['Processos', 'Organização', 'Produtividade'],
     link: '',
     featured: true,
   },
   {
-    name: 'Hermes TUI',
+    name: 'Suporte técnico e atendimento',
     description:
-      'Terminal UI estilo Claude Code com paleta retrô. 4 layouts responsivos e handlers de input estabilizados.',
-    tags: ['TypeScript', 'React', 'Ink', 'TUI'],
+      'Ajudo pessoas a resolver problemas técnicos com comunicação clara, paciência e foco em continuidade do trabalho.',
+    tags: ['Suporte', 'Computadores', 'Clientes'],
     link: '',
     featured: true,
   },
   {
-    name: 'Gerador de Relatórios Fotográficos',
+    name: 'Vendas e relacionamento',
     description:
-      'Automatiza a geração de relatórios fotográficos de obras de pavimentação a partir de fotos georreferenciadas.',
-    tags: ['Python', 'Pillow', 'PDF', 'Engenharia'],
+      'Experiência com atendimento, identificação de necessidade, negociação e acompanhamento para melhorar conversão e confiança.',
+    tags: ['Vendas', 'Comunicação', 'Pós-atendimento'],
     link: '',
-    featured: false,
+    featured: true,
+  },
+  {
+    name: 'Tecnologia aplicada ao negócio',
+    description:
+      'Uso planilhas, IA, documentos, páginas simples e automações para apoiar rotinas administrativas, comerciais e operacionais.',
+    tags: ['IA', 'Planilhas', 'Automação'],
+    link: '',
+    featured: true,
   },
 ];
 
 // Skills (estrutura pro layout terminal `ls`)
 export const skills = [
   {
-    key: 'programacao',
-    label: 'Programação',
+    key: 'suporte',
+    label: 'Suporte técnico',
     items: [
-      { name: 'TypeScript', iconKey: 'typescript' },
-      { name: 'React', iconKey: 'react' },
-      { name: 'Python', iconKey: 'python' },
-      { name: 'Node.js', iconKey: 'node' },
-      { name: 'HTML5', iconKey: 'html' },
-      { name: 'CSS3', iconKey: 'css' },
-      { name: 'JavaScript', iconKey: 'javascript' },
+      { name: 'Windows', iconKey: 'windows' },
+      { name: 'AnyDesk', iconKey: 'anydesk' },
+      { name: 'TeamViewer', iconKey: 'teamviewer' },
+      { name: 'Hardware', iconKey: 'intel' },
+    ],
+  },
+  {
+    key: 'produtividade',
+    label: 'Produtividade & Office',
+    items: [
+      { name: 'Word', iconKey: 'word' },
+      { name: 'Excel', iconKey: 'excel' },
+      { name: 'PowerPoint', iconKey: 'powerpoint' },
+      { name: 'Google Docs', iconKey: 'googledocs' },
+      { name: 'Google Sheets', iconKey: 'googlesheets' },
+    ],
+  },
+  {
+    key: 'ia',
+    label: 'IA Generativa',
+    items: [
+      { name: 'ChatGPT', iconKey: 'openai' },
+      { name: 'Claude', iconKey: 'claude' },
+      { name: 'Gemini', iconKey: 'gemini' },
     ],
   },
   {
@@ -136,28 +195,22 @@ export const skills = [
     ],
   },
   {
-    key: 'office',
-    label: 'Pacote Office',
+    key: 'web',
+    label: 'Tecnologia Web',
     items: [
-      { name: 'Word', iconKey: 'word' },
-      { name: 'Excel', iconKey: 'excel' },
-      { name: 'PowerPoint', iconKey: 'powerpoint' },
+      { name: 'HTML5', iconKey: 'html' },
+      { name: 'CSS3', iconKey: 'css' },
+      { name: 'JavaScript', iconKey: 'javascript' },
+      { name: 'Python', iconKey: 'python' },
     ],
   },
   {
-    key: 'engenharia',
-    label: 'Engenharia',
+    key: 'operacional',
+    label: 'Rotina operacional',
     items: [
       { name: 'AutoCAD', iconKey: 'autocad' },
-    ],
-  },
-  {
-    key: 'ia',
-    label: 'IA Generativa',
-    items: [
-      { name: 'OpenAI', iconKey: 'openai' },
-      { name: 'Prompt Eng.', iconKey: 'prompt' },
-      { name: 'LangChain', iconKey: 'langchain' },
+      { name: 'Trello', iconKey: 'trello' },
+      { name: 'Notion', iconKey: 'notion' },
     ],
   },
 ];

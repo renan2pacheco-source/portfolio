@@ -2,18 +2,18 @@
 import AnimatedSection from './react/AnimatedSection';
 import SectionHeader from './SectionHeader.astro';
 import { profile } from '../data/content';
-import { Instagram, MessageCircle, Mail, MapPin, ArrowUpRight } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 ---
 
 <section id="contato" class="section">
   <div class="container-narrow text-center">
     <AnimatedSection client:visible>
-      <SectionHeader command="./connect.sh" index="04" total="05" centered>
+      <SectionHeader command="./contato.sh" index="05" total="05" centered>
         <h2 class="section-title text-balance max-w-2xl mx-auto">
-          Vamos <span class="text-accent">conectar</span>?
+          Contato profissional<span class="text-accent">.</span>
         </h2>
         <p class="section-subtitle mx-auto mb-12 text-pretty">
-          Aberto a conversas sobre tech, IA, design, nutrição, ou qualquer projeto interdisciplinar.
+          Aberto a oportunidades em suporte técnico, atendimento, vendas, rotinas operacionais, produtividade e tecnologia aplicada ao negócio.
         </p>
       </SectionHeader>
 
@@ -32,15 +32,6 @@ import { Instagram, MessageCircle, Mail, MapPin, ArrowUpRight } from 'lucide-rea
 
     <AnimatedSection client:visible delay={0.2}>
       <div class="flex flex-wrap items-center justify-center gap-3 mb-8 font-mono">
-        <a
-          href={profile.links.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="ascii-box px-4 py-2 hover:border-accent transition-all flex items-center gap-2 text-sm"
-        >
-          <Instagram className="w-4 h-4" />
-          <span>@nucleo_digit4l</span>
-        </a>
         <a
           href={`mailto:${profile.email}`}
           class="ascii-box px-4 py-2 hover:border-accent transition-all flex items-center gap-2 text-sm"

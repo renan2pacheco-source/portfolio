@@ -7,9 +7,9 @@ import { profile, bio } from '../data/content';
 <section id="sobre" class="section">
   <div class="container-narrow">
     <AnimatedSection client:visible>
-      <SectionHeader command="cat about.md" index="01" total="05">
+      <SectionHeader command="cat resumo-profissional.md" index="01" total="05">
         <h2 class="section-title text-balance">
-          Quem <span class="text-accent">{'<'}</span>estou<span class="text-accent">{'/>'}</span>.
+          Resumo profissional<span class="text-accent">.</span>
         </h2>
         <p class="section-subtitle mb-12 text-pretty">{bio.intro}</p>
       </SectionHeader>
@@ -26,7 +26,7 @@ import { profile, bio } from '../data/content';
       </AnimatedSection>
 
       <AnimatedSection client:visible delay={0.3}>
-        <div class="space-y-4 text-text-muted leading-relaxed text-pretty font-mono text-sm md:text-[15px]">
+        <div class="space-y-4 text-text-muted leading-relaxed text-pretty text-sm md:text-base">
           {bio.paragraphs.map((p) => <p>{p}</p>)}
 
           <div class="pt-6 grid grid-cols-2 gap-4 ascii-box p-4 mt-6">
@@ -36,7 +36,7 @@ import { profile, bio } from '../data/content';
             </div>
             <div>
               <div class="text-label mb-1">// status</div>
-              <div class="text-accent text-sm">● online</div>
+              <div class="text-accent text-sm">● disponível</div>
             </div>
           </div>
         </div>

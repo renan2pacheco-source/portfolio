@@ -2,24 +2,24 @@
 import AnimatedSection from './react/AnimatedSection';
 import SectionHeader from './SectionHeader.astro';
 import ProjectCard from './react/ProjectCard';
-import { projects } from '../data/content';
+import { results } from '../data/content';
 ---
 
-<section id="projetos" class="section">
+<section id="resultados" class="section">
   <div class="container-narrow">
     <AnimatedSection client:visible>
-      <SectionHeader command="ls projects/" index="04" total="05">
+      <SectionHeader command="cat resultado-empresa.txt" index="03" total="05">
         <h2 class="section-title text-balance">
-          Coisas que <span class="text-accent">construí</span>.
+          Como posso gerar <span class="text-accent">resultado</span>.
         </h2>
         <p class="section-subtitle mb-12 text-pretty">
-          Projetos, laboratórios e ferramentas que demonstram meu jeito de resolver problemas.
+          O foco não é mostrar projeto pessoal: é mostrar onde minhas habilidades reduzem atrito, melhoram atendimento e organizam a rotina da empresa.
         </p>
       </SectionHeader>
     </AnimatedSection>
 
     <div class="grid sm:grid-cols-2 gap-4">
-      {projects.map((project, i) => (
+      {results.map((project, i) => (
         <ProjectCard
           client:visible
           name={project.name}
@@ -30,18 +30,5 @@ import { projects } from '../data/content';
         />
       ))}
     </div>
-
-    <AnimatedSection client:visible delay={0.4}>
-      <div class="mt-10 text-center font-mono">
-        <a
-          href="https://instagram.com/nucleo_digit4l"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-text-muted text-sm hover:text-accent transition-colors"
-        >
-          <span class="text-accent">$</span> ver mais no instagram →
-        </a>
-      </div>
-    </AnimatedSection>
   </div>
 </section>
