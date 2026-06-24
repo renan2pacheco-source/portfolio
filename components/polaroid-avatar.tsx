@@ -27,13 +27,12 @@ export function PolaroidAvatar({ size = 220 }: PolaroidAvatarProps) {
             background: "linear-gradient(135deg, #fdf6e3 0%, #f4e8c1 100%)",
           }}
         >
-          {/* Initial grande */}
-          <div
-            className="font-heading text-[var(--margin-red)] select-none"
-            style={{ fontSize: size * 0.55, lineHeight: 1, fontWeight: 700 }}
-          >
-            {profile.initials}
-          </div>
+          <img
+            src="/portfolio/sticker-icons/profile-photo.png"
+            alt={profile.name}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
           {/* Label manuscrito embaixo */}
           <div
             className="font-detail text-[var(--ink-soft)] mt-1"
