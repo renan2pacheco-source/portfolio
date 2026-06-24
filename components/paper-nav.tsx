@@ -37,16 +37,16 @@ export function PaperNav() {
   useEffect(() => {
     if (typeof window === "undefined") return
     const sectionIds = ["inicio", ...navLinks.map((l) => l.href.replace("#", ""))]
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              setActiveSection(entry.target.id)
+            }
           }
-        }
-      },
-      { rootMargin: "-30% 0px -60% 0px" }
-    )
+        },
+        { rootMargin: "-18% 0px -68% 0px", threshold: 0.05 }
+      )
     sectionIds.forEach((id) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
@@ -60,7 +60,8 @@ export function PaperNav() {
     if (element) {
       const rect = element.getBoundingClientRect()
       const currentScrollY = window.pageYOffset || document.documentElement.scrollTop
-      const targetPosition = Math.max(0, rect.top + currentScrollY - 110)
+      const navOffset = window.innerWidth < 768 ? 92 : 118
+      const targetPosition = Math.max(0, rect.top + currentScrollY - navOffset)
       window.scrollTo({ top: targetPosition, behavior: "smooth" })
     }
     setIsOpen(false)

@@ -9,7 +9,7 @@ export function AboutSection() {
   return (
     <section
       id="sobre"
-      className="py-20 md:py-28 px-4 md:px-8 relative"
+      className="py-16 md:py-24 px-4 md:px-8 relative"
     >
       <div className="max-w-5xl mx-auto">
         {/* Título manuscrito */}
@@ -22,7 +22,7 @@ export function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
           {/* Texto corrido à esquerda */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -30,13 +30,13 @@ export function AboutSection() {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, delay: 0 }}
           >
-            <p className="font-heading text-2xl md:text-4xl text-[var(--ink-soft)] italic mb-6">
+            <p className="font-heading text-[1.9rem] md:text-4xl text-[var(--ink-soft)] italic mb-5 leading-[1.2]">
               {about.intro}
             </p>
             {about.paragraphs.map((p, i) => (
               <p
                 key={i}
-                className="text-[var(--ink-soft)] leading-relaxed mb-4 text-lg md:text-[1.15rem]"
+                className="text-[var(--ink-soft)] leading-relaxed mb-4 text-[1.06rem] md:text-[1.15rem]"
               >
                 {p}
               </p>
@@ -48,7 +48,7 @@ export function AboutSection() {
                 <PencilDoodle className="text-[var(--ink-soft)]" size={20} />
                 <span>Formação</span>
               </h3>
-              <ul className="space-y-1.5 text-base text-[var(--ink-soft)]">
+              <ul className="space-y-2 text-[1.02rem] text-[var(--ink-soft)]">
                 {education.map((ed, i) => (
                   <li key={i}>
                     <span className="font-medium">{ed.course}</span>

@@ -10,7 +10,7 @@ export function ContactSection() {
   return (
     <section
       id="contato"
-      className="py-20 md:py-28 px-4 md:px-8 relative"
+      className="py-16 md:py-24 px-4 md:px-8 relative"
     >
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center gap-3 mb-3 justify-center">

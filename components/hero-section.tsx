@@ -1,7 +1,7 @@
 "use client"
 
 import { ArrowRight, Download, MapPin, MessageCircle, Sparkles } from "lucide-react"
-import { profile, hero, rotatingRoles } from "@/data/content"
+import { profile, hero } from "@/data/content"
 import { PolaroidAvatar } from "./polaroid-avatar"
 import { Typewriter } from "./typewriter"
 import { StarDoodle, ArrowDoodle, SquiggleDoodle } from "./doodles"
@@ -14,7 +14,7 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="min-h-[100svh] flex items-center justify-center pt-24 md:pt-32 lg:pt-36 pb-20 md:pb-24 px-5 md:px-8 lg:px-10 relative"
+      className="min-h-[100svh] flex items-center justify-center pt-22 md:pt-30 lg:pt-36 pb-16 md:pb-22 px-5 md:px-8 lg:px-10 relative"
     >
       <div className="max-w-6xl xl:max-w-7xl w-full mx-auto">
         {/* Badge "Site Currículo" manuscrito */}
@@ -27,9 +27,9 @@ export function HeroSection() {
           <span>site currículo</span>
         </div>
 
-        <div className="grid md:grid-cols-[minmax(0,1.2fr)_auto] gap-12 md:gap-16 lg:gap-20 items-center">
+        <div className="grid md:grid-cols-[minmax(0,1.2fr)_auto] gap-8 md:gap-16 lg:gap-20 items-center">
           {/* Texto à esquerda */}
-          <div className="order-2 md:order-1">
+          <div className="order-1 text-center md:text-left">
             <p
               className={`font-detail text-[1.7rem] sm:text-[2rem] md:text-[2.2rem] text-[var(--ink-soft)] mb-3 transition-all duration-700 delay-100 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
@@ -38,7 +38,7 @@ export function HeroSection() {
               {hero.greeting}
             </p>
 
-            <h1 className="font-heading text-[3.8rem] sm:text-[4.8rem] md:text-[6.4rem] xl:text-[7.2rem] leading-[1.02] md:leading-[0.92] font-bold text-[var(--ink)] mb-4">
+            <h1 className="font-heading text-[3.5rem] sm:text-[4.6rem] md:text-[6.4rem] xl:text-[7.2rem] leading-[1.02] md:leading-[0.92] font-bold text-[var(--ink)] mb-4 text-balance">
               {mounted ? (
                 <Typewriter
                   text={profile.fullName}
@@ -51,7 +51,7 @@ export function HeroSection() {
             </h1>
 
             {/* Cargo / função manuscrito */}
-            <div className="relative inline-block mb-7 pb-3 overflow-visible">
+            <div className="relative inline-block mb-6 pb-3 overflow-visible max-w-full">
               <SquiggleDoodle
                 className="subtitle-squiggle absolute left-0 bottom-0 text-[var(--margin-red)] opacity-70"
                 size={300}
@@ -71,7 +71,7 @@ export function HeroSection() {
             </div>
 
             <p
-              className={`text-[var(--ink-muted)] leading-relaxed text-[1.15rem] sm:text-[1.22rem] md:text-[1.35rem] lg:text-[1.45rem] max-w-2xl mb-7 transition-all duration-700 delay-200 ${
+              className={`text-[var(--ink-muted)] leading-relaxed text-[1.08rem] sm:text-[1.18rem] md:text-[1.35rem] lg:text-[1.45rem] max-w-2xl mx-auto md:mx-0 mb-7 transition-all duration-700 delay-200 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
             >
@@ -79,16 +79,16 @@ export function HeroSection() {
             </p>
 
             <div
-              className={`flex items-center gap-2 text-[1.08rem] sm:text-[1.12rem] md:text-[1.18rem] text-[var(--ink-muted)] font-detail mb-9 transition-all duration-700 delay-300 ${
+              className={`flex items-center justify-center md:justify-start gap-2 text-[1.08rem] sm:text-[1.12rem] md:text-[1.18rem] text-[var(--ink-muted)] font-detail mb-8 transition-all duration-700 delay-300 ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
-              <MapPin className="w-4.5 h-4.5" />
+              <MapPin className="w-[18px] h-[18px] flex-shrink-0" />
               <span>{profile.location}</span>
             </div>
 
             <div
-              className={`flex flex-wrap items-center gap-3.5 md:gap-4 transition-all duration-700 delay-400 ${
+              className={`flex flex-wrap items-center justify-center md:justify-start gap-3.5 md:gap-4 transition-all duration-700 delay-400 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
               }`}
             >
@@ -113,7 +113,7 @@ export function HeroSection() {
             </div>
 
             <div
-              className={`mt-10 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-green-600/30 bg-green-50/40 transition-all duration-700 delay-500 ${
+              className={`mt-9 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-green-600/30 bg-green-50/40 transition-all duration-700 delay-500 ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -129,7 +129,7 @@ export function HeroSection() {
           </div>
 
           {/* Polaroid à direita */}
-          <div className="order-1 md:order-2 flex justify-center md:justify-end relative">
+          <div className="order-2 flex justify-center md:justify-end relative mt-2 md:mt-0">
             <StarDoodle
               className="absolute -top-2 md:-top-2 right-0 md:-right-2 text-[var(--pen-blue)] animate-wobble"
               size={36}

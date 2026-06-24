@@ -19,21 +19,21 @@
 | Animações | Motion (framer-motion v12) |
 | Estilo | Tailwind CSS 4 |
 | Ícones | Simple Icons + Lucide + SVGs custom (OpenCode, Hermes, CachyOS, VS Code) |
-| Fonte | Geist + Geist Mono |
-| Efeitos | Aurora background, Glassmorphism Nav, RotatingText |
+| Fonte | Caveat + Architects Daughter + Inter |
+| Efeitos | Notebook theme, doodles, motion-based reveals |
 | Deploy | GitHub Actions → Pages (Next.js static export) |
 
 ## Estrutura do currículo
 
-1. **Hero** — nome completo + RotatingText ("Suporte Técnico", "Atendimento", "Vendas", "Automação", "Operação") + CTA WhatsApp + botão de download CV
+1. **Hero** — nome completo + subtítulo manuscrito + CTA principal + botão de download CV
 2. **Sobre** — resumo profissional, perfil, experiências
-3. **Trajetória** — timeline com experiência profissional + formação + idiomas
-4. **Stack** — separado em dois:
-   - **Stack Atual** (em uso, com badge "Em uso"): OpenCode CLI, Hermes Agent, CachyOS, VS Code, GitHub, Vercel, TypeScript, Astro, Python, HTML, JavaScript
-   - **Experiência anterior** (já usei): suporte, office, IA, design, web (CSS), linux, banco de dados, rotina operacional
-5. **Competências** — onde gero resultado pra empresa (4 cards)
-6. **Contato** — WhatsApp, email, GitHub, Instagram + localização
-7. **Footer** — navegação + contato + social
+3. **Sobre** — formação + idiomas + qualidades em post-its
+4. **Habilidades** — separado em dois:
+   - **Em uso**: OpenCode CLI, Hermes Agent, CachyOS, VS Code, GitHub, Vercel, TypeScript, Python, HTML, JavaScript
+   - **Já tive contato**: office, design, IA, CSS, SQLite, AutoCAD e ferramentas operacionais
+5. **Competências** — onde gero resultado pra empresa
+6. **Contato** — WhatsApp, email, Instagram + localização
+7. **Footer** — assinatura final
 
 ## Como rodar
 
@@ -50,20 +50,16 @@ A build gera um site estático em `out/` (Next.js static export).
 ```
 portfolio/
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Layout root (fontes Geist, metadata)
+│   ├── layout.tsx          # Layout root (fontes manuscritas + metadata)
 │   ├── page.tsx            # Home: ordem das seções
-│   └── globals.css         # Tema dark-gold
+│   └── globals.css         # Tema folha de caderno
 ├── components/
-│   ├── glassmorphism-nav.tsx   # Nav fixa com hide/show on scroll
-│   ├── hero-section.tsx        # Hero com RotatingText
-│   ├── Aurora.tsx              # Background effect
-│   ├── RotatingText.tsx        # Animação de texto rotativo
+│   ├── paper-nav.tsx           # Nav fixa estilo papel
+│   ├── hero-section.tsx        # Hero principal
 │   ├── footer.tsx              # Footer com social/contact
 │   ├── ui/                     # shadcn/ui components
 │   └── sections/               # Seções custom do currículo
 │       ├── about-section.tsx
-│       ├── experience-section.tsx
-│       ├── stack-section.tsx
 │       ├── competencies-section.tsx
 │       └── contact-section.tsx
 ├── data/

@@ -53,14 +53,6 @@ export const about = {
 }
 
 // Palavras que giram no hero (verbos curtos, sem duplicar competências)
-export const rotatingRoles = [
-  'Suporte',
-  'Vendas',
-  'Web',
-  'IA',
-  'Automação',
-]
-
 // Navegação principal
 export const navLinks = [
   { name: 'Sobre', href: '#sobre' },
@@ -171,8 +163,8 @@ export const competencies = [
   {
     name: 'Criação de websites',
     description:
-      'Desenvolvo sites estáticos e portfólios com TypeScript, React, Astro e Next.js — do design ao deploy.',
-    tags: ['Astro', 'Next.js', 'TypeScript'],
+      'Desenvolvo sites estáticos e portfólios com TypeScript, React e Next.js — do design ao deploy.',
+    tags: ['React', 'Next.js', 'TypeScript'],
     color: 'blue',
   },
   {

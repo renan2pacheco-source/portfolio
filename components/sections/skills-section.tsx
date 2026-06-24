@@ -13,7 +13,7 @@ export function SkillsSection() {
   return (
     <section
       id="habilidades"
-      className="py-20 md:py-28 px-4 md:px-8 relative"
+      className="py-16 md:py-24 px-4 md:px-8 relative"
     >
       <div className="max-w-5xl mx-auto">
         {/* Título centralizado com setas */}
@@ -30,7 +30,7 @@ export function SkillsSection() {
 
         {/* Stack atual — em uso */}
         <div className="mb-12">
-          <div className="flex items-center gap-2 mb-8 overflow-visible">
+          <div className="flex flex-wrap items-center gap-2 mb-8 overflow-visible">
             <HeartDoodle className="text-[var(--margin-red)]" size={24} />
             <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)] leading-[1.22] pb-1 overflow-visible">
               <span className="underline-squiggle">Em uso</span>
@@ -38,7 +38,7 @@ export function SkillsSection() {
             <span className="tag-hand tag-hand-accent ml-2">daily driver</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4">
             {current.map((skill, i) => (
               <motion.div
                 key={skill.name}
@@ -47,7 +47,7 @@ export function SkillsSection() {
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: i * 0.05 }}
                 whileHover={{ scale: 1.02 }}
-                className="paper-card p-3 flex items-center gap-3 group cursor-default"
+                className="paper-card min-h-[84px] p-3 flex items-center gap-3 group cursor-default"
                 title={skill.description}
               >
                 <div className="icon-wrap w-10 h-10 flex-shrink-0">
@@ -70,13 +70,13 @@ export function SkillsSection() {
 
         {/* Experiência anterior */}
         <div>
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-5">
             <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink-soft)]">
               Já trabalhei ou tive contato
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4">
             {experience.map((skill, i) => (
               <motion.div
                 key={skill.name}
@@ -85,7 +85,7 @@ export function SkillsSection() {
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
                 whileHover={{ scale: 1.02 }}
-                className="bg-[var(--paper-light)]/50 border border-dashed border-[var(--rule-blue)] rounded p-2.5 flex items-center gap-2.5 group hover:border-[var(--ink-muted)] cursor-default"
+                className="bg-[var(--paper-light)]/50 border border-dashed border-[var(--rule-blue)] rounded min-h-[74px] p-2.5 flex items-center gap-2.5 group hover:border-[var(--ink-muted)] cursor-default"
               >
                 <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
                   <IconSvg iconKey={skill.iconKey} />
