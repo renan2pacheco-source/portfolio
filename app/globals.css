@@ -261,15 +261,16 @@
   .underline-squiggle {
     position: relative;
     display: inline-block;
-    padding-bottom: 0.35em;
+    padding-bottom: 0.52em;
+    line-height: 1.18;
   }
   .underline-squiggle::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0.02em;
-    height: 8px;
+    bottom: -0.02em;
+    height: 10px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 4' width='12' height='4'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='%23c0392b' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-position: 0 100%;
@@ -340,7 +341,7 @@
     gap: 0.35rem;
     padding: 0.25rem 0.85rem;
     font-family: var(--font-detail), cursive;
-    font-size: 0.95rem;
+    font-size: 1rem;
     background: var(--paper-dark);
     color: var(--ink-soft);
     border: 1px dashed var(--ink-muted);

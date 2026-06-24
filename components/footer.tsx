@@ -29,7 +29,7 @@ export function Footer() {
             <span className="w-2 h-2 rounded-full bg-[var(--ink)]" />
           </div>
 
-          <p className="font-detail text-base text-[var(--ink-muted)] mb-1">
+          <p className="font-detail text-[1.05rem] text-[var(--ink-muted)] mb-1">
             feito à mão por
           </p>
 
@@ -38,7 +38,7 @@ export function Footer() {
             {profile.fullName}
           </p>
 
-          <p className="font-detail text-[15px] text-[var(--ink-muted)] mt-3">
+          <p className="font-detail text-base text-[var(--ink-muted)] mt-3">
             © {year} · vale do anari, RO
           </p>
         </motion.div>

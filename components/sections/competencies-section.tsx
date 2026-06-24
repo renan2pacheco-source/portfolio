@@ -46,7 +46,7 @@ export function CompetenciesSection() {
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {c.tags.map((tag) => (
-                  <span key={tag} className="tag-hand text-[0.78rem]">
+                  <span key={tag} className="tag-hand text-[0.9rem]">
                     {tag}
                   </span>
                 ))}

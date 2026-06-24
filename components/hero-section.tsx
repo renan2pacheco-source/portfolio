@@ -19,7 +19,7 @@ export function HeroSection() {
       <div className="max-w-6xl xl:max-w-7xl w-full mx-auto">
         {/* Badge "Site Currículo" manuscrito */}
         <div
-          className={`inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[var(--paper-light)] border-2 border-dashed border-[var(--margin-red)] rounded-full font-detail text-base text-[var(--margin-red)] transition-all duration-700 ${
+          className={`inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[var(--paper-light)] border-2 border-dashed border-[var(--margin-red)] rounded-full font-detail text-[1.05rem] md:text-[1.12rem] text-[var(--margin-red)] transition-all duration-700 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
           }`}
         >
@@ -79,7 +79,7 @@ export function HeroSection() {
             </p>
 
             <div
-              className={`flex items-center gap-2 text-[1.02rem] sm:text-[1.08rem] md:text-[1.12rem] text-[var(--ink-muted)] font-detail mb-9 transition-all duration-700 delay-300 ${
+              className={`flex items-center gap-2 text-[1.08rem] sm:text-[1.12rem] md:text-[1.18rem] text-[var(--ink-muted)] font-detail mb-9 transition-all duration-700 delay-300 ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -122,7 +122,7 @@ export function HeroSection() {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60 animate-ping"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 ring-2 ring-green-200"></span>
               </span>
-              <span className="font-detail text-[var(--ink-soft)] text-[1rem] sm:text-[1.05rem] font-medium">
+              <span className="font-detail text-[var(--ink-soft)] text-[1.05rem] sm:text-[1.1rem] font-medium">
                 {hero.availableBadge}
               </span>
             </div>

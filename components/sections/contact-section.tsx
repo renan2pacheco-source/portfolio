@@ -19,7 +19,7 @@ export function ContactSection() {
             <ViewportTypewriter text="Contato" speed={60} showCursor={false} />
           </h2>
         </div>
-        <p className="text-center font-detail text-[var(--ink-muted)] mb-8 text-lg">
+        <p className="text-center font-detail text-[var(--ink-muted)] mb-8 text-[1.12rem] md:text-xl max-w-2xl mx-auto">
           // aberto a oportunidades em suporte, atendimento, vendas, web, CRM, IA e design
         </p>
 
@@ -40,7 +40,7 @@ export function ContactSection() {
             <div className="flex items-center gap-3">
               <MessageCircle className="w-7 h-7 text-[var(--ink)]" />
               <div className="flex-1">
-                <p className="font-detail text-sm text-[var(--ink-soft)] uppercase tracking-widest">
+                <p className="font-detail text-[0.95rem] md:text-base text-[var(--ink-soft)] uppercase tracking-wide">
                   whatsapp
                 </p>
                 <p className="font-heading text-2xl md:text-3xl text-[var(--ink)] font-bold">
@@ -52,7 +52,7 @@ export function ContactSection() {
           </a>
 
           {/* Links secundários */}
-          <ul className="space-y-3.5 text-[var(--ink-soft)] text-lg">
+          <ul className="space-y-3.5 text-[var(--ink-soft)] text-[1.12rem] md:text-xl">
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-[var(--margin-red)] flex-shrink-0" />
               <a

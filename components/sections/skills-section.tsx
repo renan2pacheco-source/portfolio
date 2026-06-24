@@ -24,15 +24,15 @@ export function SkillsSection() {
           </h2>
           <span className="text-3xl text-[var(--ink-soft)]">≣</span>
         </div>
-        <p className="font-detail text-center text-[var(--ink-muted)] mb-12 text-lg">
+        <p className="font-detail text-center text-[var(--ink-muted)] mb-12 text-[1.15rem] md:text-xl">
           // o que uso no dia a dia + o que já trabalhei
         </p>
 
         {/* Stack atual — em uso */}
         <div className="mb-12">
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-8 overflow-visible">
             <HeartDoodle className="text-[var(--margin-red)]" size={24} />
-            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)] leading-[1.15]">
+            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)] leading-[1.22] pb-1 overflow-visible">
               <span className="underline-squiggle">Em uso</span>
             </h3>
             <span className="tag-hand tag-hand-accent ml-2">daily driver</span>
@@ -54,7 +54,7 @@ export function SkillsSection() {
                   <IconSvg iconKey={skill.iconKey} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-detail text-[0.95rem] sm:text-base text-[var(--ink)] leading-tight break-words">
+                  <p className="font-detail text-base sm:text-[1.08rem] text-[var(--ink)] leading-tight break-words">
                     {skill.name}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ export function SkillsSection() {
                 <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
                   <IconSvg iconKey={skill.iconKey} />
                 </div>
-                <span className="font-detail text-sm sm:text-[15px] text-[var(--ink-muted)] leading-tight break-words group-hover:text-[var(--ink-soft)]">
+                <span className="font-detail text-[0.95rem] sm:text-base text-[var(--ink-muted)] leading-tight break-words group-hover:text-[var(--ink-soft)]">
                   {skill.name}
                 </span>
               </motion.div>
