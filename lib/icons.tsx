@@ -28,6 +28,7 @@ import {
 export interface IconDef {
   svg: string
   color: string
+  src?: string
 }
 
 type IconMap = Record<string, IconDef>
@@ -130,6 +131,11 @@ export const icons: IconMap = {
 export function IconSvg({ iconKey, className }: { iconKey: string; className?: string }) {
   const def = icons[iconKey]
   if (!def) return null
+
+   if (def.src) {
+    return <img src={def.src} alt={iconKey} className={className} />
+  }
+
   return (
     <span
       className={className}

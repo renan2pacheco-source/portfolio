@@ -4,7 +4,7 @@ import { ArrowRight, Download, MapPin, MessageCircle, Sparkles } from "lucide-re
 import { profile, hero } from "@/data/content"
 import { PolaroidAvatar } from "./polaroid-avatar"
 import { Typewriter } from "./typewriter"
-import { StarDoodle, ArrowDoodle, SquiggleDoodle } from "./doodles"
+import { StarDoodle, ArrowDoodle } from "./doodles"
 import { useEffect, useState } from "react"
 
 export function HeroSection() {
@@ -51,11 +51,7 @@ export function HeroSection() {
             </h1>
 
             {/* Cargo / função manuscrito */}
-            <div className="relative inline-block mb-6 pb-3 overflow-visible max-w-full">
-              <SquiggleDoodle
-                className="subtitle-squiggle absolute left-0 bottom-0 text-[var(--margin-red)] opacity-70"
-                size={300}
-              />
+            <div className="inline-flex flex-col items-center md:items-start mb-6 max-w-full">
               <p className="font-heading text-[1.9rem] sm:text-[2.2rem] md:text-[3.2rem] lg:text-[3.6rem] text-[var(--ink-soft)] italic relative leading-[1.1]">
                 {mounted ? (
                   <Typewriter
@@ -68,6 +64,7 @@ export function HeroSection() {
                   <span className="opacity-0">{hero.subtitle}</span>
                 )}
               </p>
+              <span className="hero-subtitle-line mt-2 md:mt-3" aria-hidden="true" />
             </div>
 
             <p

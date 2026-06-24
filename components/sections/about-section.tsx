@@ -3,7 +3,6 @@
 import { motion } from "motion/react"
 import { about, education, languages } from "@/data/content"
 import { LightbulbDoodle, CheckDoodle, PencilDoodle } from "@/components/doodles"
-import { ViewportTypewriter } from "@/components/viewport-typewriter"
 
 export function AboutSection() {
   return (
@@ -12,14 +11,14 @@ export function AboutSection() {
       className="py-16 md:py-24 px-4 md:px-8 relative"
     >
       <div className="max-w-5xl mx-auto">
-        {/* Título manuscrito */}
-        <div className="flex items-center gap-3 mb-14 overflow-visible">
-          <LightbulbDoodle className="text-[var(--ink)]" size={42} />
-          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)] leading-[1.22] pb-1 overflow-visible">
-            <span className="underline-squiggle">
-              <ViewportTypewriter text="Sobre mim" speed={60} showCursor={false} />
-            </span>
-          </h2>
+        <div className="mb-12 md:mb-14">
+          <div className="inline-flex items-center gap-3 tape-title tape-title-pink">
+            <h2 className="font-heading text-[2.1rem] md:text-[3.2rem] font-bold text-[var(--ink)] leading-none">
+              Sobre mim
+            </h2>
+            <LightbulbDoodle className="text-[var(--ink)] flex-shrink-0" size={34} />
+          </div>
+          <div className="section-rule mt-5 max-w-[220px] md:max-w-[280px]" aria-hidden="true" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
@@ -78,7 +77,7 @@ export function AboutSection() {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="sticky-note sticky-note-pink max-w-md md:ml-auto">
+            <div className="sticky-note sticky-note-pink max-w-md md:ml-auto md:mt-6">
               <h3 className="font-heading text-2xl md:text-3xl text-[var(--ink)] mb-4">
                 O que levo comigo
               </h3>
