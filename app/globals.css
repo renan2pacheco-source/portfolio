@@ -1,94 +1,75 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+/* =============================================================
+   TEMA: FOLHA DE CADERNO
+   Paleta inspirada em caderno universitário pautado
+   ============================================================= */
 
 :root {
-  /* Paleta dark-gold do portfolio */
-  --background: #000000;
-  --foreground: #f5f1e8;
-  --card: #090909;
-  --card-foreground: #f5f1e8;
-  --popover: #090909;
-  --popover-foreground: #f5f1e8;
-  --primary: #ffd700;            /* gold */
-  --primary-foreground: #000000;
-  --secondary: #111111;
-  --secondary-foreground: #f5f1e8;
-  --muted: #1f1f1f;
-  --muted-foreground: #a29b8f;
-  --accent: #ffbf00;             /* gold glow */
-  --accent-foreground: #000000;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #f5f1e8;
-  --border: #1f1f1f;
-  --input: #111111;
-  --ring: #ffd700;
-  --chart-1: #ffd700;
-  --chart-2: #ffbf00;
-  --chart-3: #b8860b;
-  --chart-4: #f5f1e8;
-  --chart-5: #a29b8f;
-  --radius: 0.75rem;
-  --sidebar: #090909;
-  --sidebar-foreground: #f5f1e8;
-  --sidebar-primary: #ffd700;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #111111;
-  --sidebar-accent-foreground: #f5f1e8;
-  --sidebar-border: #1f1f1f;
-  --sidebar-ring: #ffd700;
+  /* Paleta caderno */
+  --paper:        #f5efe0;   /* fundo papel creme */
+  --paper-light:  #fbf6e9;   /* papel mais claro para cards/post-its */
+  --paper-dark:   #ebe1c5;   /* sombra do papel */
+  --ink:          #2a2520;   /* tinta marrom escuro */
+  --ink-soft:     #4a3f33;   /* tinta secundária */
+  --ink-muted:    #6b5a45;   /* texto esmaecido */
+  --rule-blue:    #a8c5e0;   /* linhas pautadas */
+  --rule-blue-soft: #d4e1ed; /* linhas mais claras */
+  --margin-red:   #c0392b;   /* margem esquerda */
+  --margin-red-soft: #e57368;/* margem esmaecida */
 
-  /* Extras do portfolio original */
-  --bg: #000000;
-  --bg-surface: #090909;
-  --bg-elevated: #111111;
-  --text: #f5f1e8;
-  --text-muted: #a29b8f;
-  --text-subtle: #6f675b;
-  --gold: #ffd700;
-  --gold-glow: #ffbf00;
-  --gold-dim: #b8860b;
-  --border-subtle: #141414;
-}
+  /* Cores de destaque (caneta marca-texto) */
+  --marker-yellow: #fce94f;
+  --marker-yellow-soft: #fef7b0;
+  --marker-pink:   #ffb3c1;
+  --marker-green:  #b4e1a7;
+  --marker-blue:   #a8d8ea;
 
-.dark {
-  --background: #000000;
-  --foreground: #f5f1e8;
-  --card: #090909;
-  --card-foreground: #f5f1e8;
-  --popover: #090909;
-  --popover-foreground: #f5f1e8;
-  --primary: #ffd700;
-  --primary-foreground: #000000;
-  --secondary: #111111;
-  --secondary-foreground: #f5f1e8;
-  --muted: #1f1f1f;
-  --muted-foreground: #a29b8f;
-  --accent: #ffbf00;
-  --accent-foreground: #000000;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #f5f1e8;
-  --border: #1f1f1f;
-  --input: #111111;
-  --ring: #ffd700;
-  --chart-1: #ffd700;
-  --chart-2: #ffbf00;
-  --chart-3: #b8860b;
-  --chart-4: #f5f1e8;
-  --chart-5: #a29b8f;
-  --sidebar: #090909;
-  --sidebar-foreground: #f5f1e8;
-  --sidebar-primary: #ffd700;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #111111;
-  --sidebar-accent-foreground: #f5f1e8;
-  --sidebar-border: #1f1f1f;
-  --sidebar-ring: #ffd700;
+  /* Tinta azul (links, anotações) */
+  --pen-blue:      #1f5fa8;
+  --pen-blue-soft: #6ba3d8;
+
+  /* shadcn mappings (manter compat) */
+  --background:        var(--paper);
+  --foreground:        var(--ink);
+  --card:              var(--paper-light);
+  --card-foreground:   var(--ink);
+  --popover:           var(--paper-light);
+  --popover-foreground: var(--ink);
+  --primary:           var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary:         var(--paper-dark);
+  --secondary-foreground: var(--ink);
+  --muted:             var(--paper-dark);
+  --muted-foreground:  var(--ink-muted);
+  --accent:            var(--marker-yellow);
+  --accent-foreground: var(--ink);
+  --destructive:       var(--margin-red);
+  --destructive-foreground: var(--paper);
+  --border:            var(--rule-blue);
+  --input:             var(--paper-light);
+  --ring:              var(--pen-blue);
+  --radius:            0.375rem;
+
+  /* shadows de papel */
+  --shadow-paper:
+    0 1px 1px rgba(0,0,0,0.04),
+    0 2px 4px rgba(80, 60, 30, 0.08),
+    0 6px 12px rgba(80, 60, 30, 0.06);
+  --shadow-paper-hover:
+    0 2px 4px rgba(0,0,0,0.05),
+    0 6px 12px rgba(80, 60, 30, 0.10),
+    0 14px 28px rgba(80, 60, 30, 0.08);
+  --shadow-sticky:
+    1px 1px 1px rgba(0,0,0,0.05),
+    2px 4px 6px rgba(80, 60, 30, 0.10);
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:    var(--font-inter);
+  --font-heading: var(--font-caveat);
+  --font-detail:  var(--font-architects-daughter);
+  --font-mono:    var(--font-architects-daughter);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -108,266 +89,359 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
 }
 
+/* =============================================================
+   BASE
+   ============================================================= */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
-  }
-  html,
-  body {
-    overflow-x: hidden;
+    border-color: var(--border);
   }
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-image:
+      /* margem vermelha */
+      linear-gradient(
+        to right,
+        transparent 0,
+        transparent 84px,
+        var(--margin-red-soft) 84px,
+        var(--margin-red-soft) 86px,
+        transparent 86px,
+        transparent 100%
+      ),
+      /* linhas horizontais */
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 31px,
+        var(--rule-blue-soft) 31px,
+        var(--rule-blue-soft) 32px
+      );
+    background-attachment: fixed;
   }
   ::selection {
-    background-color: color-mix(in srgb, var(--gold) 30%, transparent);
-    color: var(--text);
+    background-color: var(--marker-yellow);
+    color: var(--ink);
   }
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--bg);
+    background: var(--paper-dark);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--border);
+    background: var(--ink-muted);
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-dim);
+    background: var(--ink-soft);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading), cursive;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
   }
 }
 
-/* === Componentes utilitários do portfolio === */
+/* =============================================================
+   COMPONENTES
+   ============================================================= */
 @layer components {
-  .gradient-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(
-      135deg,
-      var(--gold) 0%,
-      var(--text) 50%,
-      var(--gold) 100%
+  /* --- Furos de encadernação (esquerda) --- */
+  .binding-holes {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 22px;
+    width: 14px;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .binding-hole {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--paper-dark);
+    box-shadow:
+      inset 1px 1px 2px rgba(0,0,0,0.25),
+      inset -1px -1px 1px rgba(255,255,255,0.4);
+  }
+
+  /* --- Margem vermelha (label) --- */
+  .margin-label {
+    position: absolute;
+    left: 12px;
+    font-family: var(--font-detail), cursive;
+    color: var(--margin-red);
+    font-size: 0.7rem;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    white-space: nowrap;
+  }
+
+  /* --- Cards de papel --- */
+  .paper-card {
+    background-color: var(--paper-light);
+    border: 1px solid var(--rule-blue-soft);
+    border-radius: 4px;
+    box-shadow: var(--shadow-paper);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .paper-card:hover {
+    box-shadow: var(--shadow-paper-hover);
+    transform: translateY(-2px);
+  }
+
+  /* --- Post-its coloridos --- */
+  .sticky-note {
+    position: relative;
+    padding: 1.25rem 1.25rem 1.5rem;
+    box-shadow: var(--shadow-sticky);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--ink);
+  }
+  .sticky-note:hover {
+    transform: translateY(-3px) rotate(0deg) !important;
+    box-shadow:
+      2px 4px 8px rgba(80, 60, 30, 0.15),
+      6px 12px 24px rgba(80, 60, 30, 0.10);
+  }
+  .sticky-note-yellow { background: var(--marker-yellow-soft); transform: rotate(-1.5deg); }
+  .sticky-note-pink   { background: var(--marker-pink);       transform: rotate(1.2deg); }
+  .sticky-note-green  { background: var(--marker-green);      transform: rotate(-0.8deg); }
+  .sticky-note-blue   { background: var(--marker-blue);       transform: rotate(1.5deg); }
+
+  /* --- Marca-texto (highlight) --- */
+  .marker-highlight {
+    background: linear-gradient(
+      180deg,
+      transparent 55%,
+      var(--marker-yellow) 55%,
+      var(--marker-yellow) 92%,
+      transparent 92%
     );
+    padding: 0 0.15em;
   }
 
-  .btn-primary {
+  /* --- Sublinhado irregular (rabisco) --- */
+  .underline-squiggle {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 4' width='12' height='4'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='%23c0392b' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    background-size: 12px 4px;
+    padding-bottom: 4px;
+  }
+
+  /* --- Botões manuscritos --- */
+  .btn-paper {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.4rem;
+    font-family: var(--font-heading), cursive;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.875rem;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
-    background-color: var(--gold);
-    color: var(--bg);
-    border-radius: 9999px;
+    font-size: 1.15rem;
+    color: var(--ink);
+    background: var(--paper-light);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    cursor: pointer;
   }
-  .btn-primary:hover {
-    background-color: var(--gold-glow);
-    box-shadow: 0 0 28px color-mix(in srgb, var(--gold) 22%, transparent);
-    transform: scale(1.02);
+  .btn-paper:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--ink);
+    background: var(--marker-yellow-soft);
   }
-  .btn-primary:active {
-    transform: translateY(1px) scale(1);
+  .btn-paper:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
   }
-  .btn-primary:focus-visible {
-    outline: 2px solid var(--gold-glow);
-    outline-offset: 2px;
+  .btn-paper-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-paper-primary:hover {
+    background: var(--ink-soft);
   }
 
-  .btn-secondary {
+  /* --- Tags manuscritas --- */
+  .tag-hand {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.875rem;
-    transition: background-color 0.2s ease, transform 0.15s ease;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    background: transparent;
-    border-radius: 9999px;
-  }
-  .btn-secondary:hover {
-    background: color-mix(in srgb, var(--gold) 10%, transparent);
-    transform: scale(1.02);
-  }
-  .btn-secondary:active {
-    transform: translateY(1px) scale(1);
-  }
-  .btn-secondary:focus-visible {
-    outline: 2px solid var(--gold-glow);
-    outline-offset: 2px;
-  }
-
-  .ascii-box {
-    border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--bg-surface) 60%, transparent);
-  }
-
-  .text-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-subtle);
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.25rem 0.625rem;
+    gap: 0.3rem;
+    padding: 0.15rem 0.7rem;
+    font-family: var(--font-detail), cursive;
     font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: color-mix(in srgb, var(--gold) 8%, transparent);
-    color: var(--gold);
-    border: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
+    background: var(--paper-dark);
+    color: var(--ink-soft);
+    border: 1px dashed var(--ink-muted);
+    border-radius: 999px;
+  }
+  .tag-hand-accent {
+    background: var(--marker-yellow);
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  /* --- Avatar polaroid (sem foto) --- */
+  .polaroid {
+    background: var(--paper);
+    padding: 0.75rem 0.75rem 2.5rem;
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.10),
+      0 8px 24px rgba(80, 60, 30, 0.15);
+    transform: rotate(2.5deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+  }
+  .polaroid:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.12),
+      0 16px 40px rgba(80, 60, 30, 0.20);
+  }
+  .polaroid::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 50%;
+    height: 18px;
+    background: rgba(255, 255, 200, 0.65);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  }
+
+  /* --- Linha manuscrita divisória --- */
+  .hand-divider {
+    height: 12px;
+    width: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' width='120' height='8'%3E%3Cpath d='M0 4 Q15 0 30 4 T60 4 T90 4 T120 4' fill='none' stroke='%234a3f33' stroke-width='1.4' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: 0 center;
+    background-size: 120px 8px;
+  }
+
+  /* --- Rubrica de assinatura (canto) --- */
+  .signature {
+    font-family: var(--font-heading), cursive;
+    font-weight: 700;
+    color: var(--margin-red);
+    transform: rotate(-4deg);
+    display: inline-block;
   }
 }
 
+/* =============================================================
+   UTILITÁRIOS
+   ============================================================= */
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  .text-pretty  { text-wrap: pretty; }
+  .font-heading { font-family: var(--font-heading), cursive; }
+  .font-detail  { font-family: var(--font-detail), cursive; }
+  .font-sans    { font-family: var(--font-sans), system-ui, sans-serif; }
+
+  .text-ink         { color: var(--ink); }
+  .text-ink-soft    { color: var(--ink-soft); }
+  .text-ink-muted   { color: var(--ink-muted); }
+  .text-margin-red  { color: var(--margin-red); }
+  .text-pen-blue    { color: var(--pen-blue); }
+
+  .bg-paper        { background-color: var(--paper); }
+  .bg-paper-light  { background-color: var(--paper-light); }
+  .bg-paper-dark   { background-color: var(--paper-dark); }
+  .bg-marker-yellow { background-color: var(--marker-yellow); }
+  .bg-marker-pink   { background-color: var(--marker-pink); }
+  .bg-marker-green  { background-color: var(--marker-green); }
+  .bg-marker-blue   { background-color: var(--marker-blue); }
+
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
   }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
 }
 
-/* === Animações === */
-@keyframes fade-in-nav {
-  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+/* =============================================================
+   ANIMAÇÕES
+   ============================================================= */
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
 }
-@keyframes fade-in-hero {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+.cursor::after {
+  content: '_';
+  color: var(--ink);
+  animation: cursor-blink 1s steps(1) infinite;
+  margin-left: 2px;
+  font-weight: 400;
 }
-@keyframes fade-in-badge {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade-in-heading {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade-in-subheading {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade-in-buttons {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade-in-trust {
-  0% { opacity: 0; transform: translateY(15px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+
 @keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(30px); }
+  0%   { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-@keyframes fade-in-section {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); opacity: 0.3; }
-  50% { transform: translateY(-10px); opacity: 0.6; }
-}
-@keyframes slide-in-left {
-  0% { opacity: 0; transform: translateX(-20px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes slide-in-right {
-  0% { opacity: 0; transform: translateX(20px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--gold) 50%, transparent)); }
-  50% { opacity: 0.9; filter: drop-shadow(0 0 12px color-mix(in srgb, var(--gold) 80%, transparent)); }
-}
-@keyframes mobile-menu-item {
-  0% { opacity: 0; transform: translateY(-15px) translateX(-10px); }
-  100% { opacity: 1; transform: translateY(0) translateX(0); }
-}
+.animate-fade-in-up { animation: fade-in-up 0.8s ease-out both; }
 
-.animate-fade-in-nav { animation: fade-in-nav 0.8s ease-out forwards; }
-.animate-fade-in-hero { animation: fade-in-hero 1s ease-out 0.2s forwards; opacity: 0; }
-.animate-fade-in-badge { animation: fade-in-badge 0.8s ease-out 0.4s forwards; opacity: 0; }
-.animate-fade-in-heading { animation: fade-in-heading 1s ease-out 0.6s forwards; opacity: 0; }
-.animate-fade-in-subheading { animation: fade-in-subheading 0.8s ease-out 0.8s forwards; opacity: 0; }
-.animate-fade-in-buttons { animation: fade-in-buttons 0.8s ease-out 1s forwards; opacity: 0; }
-.animate-fade-in-trust { animation: fade-in-trust 0.8s ease-out 1.2s forwards; opacity: 0; }
-.animate-fade-in-up { animation: fade-in-up 0.7s ease-out forwards; }
-.animate-fade-in-section { animation: fade-in-section 1s ease-out forwards; opacity: 0; }
-.animate-float { animation: float 4s ease-in-out infinite; }
-.animate-slide-in-left { animation: slide-in-left 0.6s ease-out forwards; }
-.animate-slide-in-right { animation: slide-in-right 0.6s ease-out forwards; }
-.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-.animate-mobile-menu-item { animation: mobile-menu-item 0.4s ease-out forwards; opacity: 0; }
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 0.8s ease-out both; }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+.animate-wobble { animation: wobble 4s ease-in-out infinite; }
+
+@keyframes float-note {
+  0%, 100% { transform: rotate(-1.5deg) translateY(0); }
+  50%      { transform: rotate(-1.5deg) translateY(-6px); }
+}
+.animate-float-note { animation: float-note 5s ease-in-out infinite; }
+
+@keyframes draw-line {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-in-nav,
-  .animate-fade-in-hero,
-  .animate-fade-in-badge,
-  .animate-fade-in-heading,
-  .animate-fade-in-subheading,
-  .animate-fade-in-buttons,
-  .animate-fade-in-trust,
   .animate-fade-in-up,
-  .animate-fade-in-section,
-  .animate-float,
-  .animate-pulse-glow,
-  .animate-mobile-menu-item {
+  .animate-fade-in,
+  .animate-wobble,
+  .animate-float-note {
     animation: none;
     opacity: 1;
     transform: none;
   }
+  .cursor::after { animation: none; }
 }

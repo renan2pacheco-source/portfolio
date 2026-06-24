@@ -1,74 +1,157 @@
 "use client"
 
-import { ArrowRight, MessageCircle, Download, MapPin } from "lucide-react"
-import RotatingText from "./RotatingText"
-import { profile, rotatingWords } from "@/data/content"
+import { ArrowRight, Download, MapPin, MessageCircle, Sparkles } from "lucide-react"
+import { profile, hero, rotatingRoles } from "@/data/content"
+import { PolaroidAvatar } from "./polaroid-avatar"
+import { Typewriter } from "./typewriter"
+import { StarDoodle, ArrowDoodle, SquiggleDoodle } from "./doodles"
+import { useEffect, useState } from "react"
 
 export function HeroSection() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
-      <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
-        {/* Badge de status */}
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-[var(--gold)]/10 backdrop-blur-md border border-[var(--gold)]/30 text-[var(--gold)] text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
-          <span className="w-2 h-2 bg-[var(--gold)] rounded-full mr-2 animate-pulse-glow"></span>
-          Disponível para oportunidades
+    <section
+      id="inicio"
+      className="min-h-screen flex items-center justify-center pt-28 md:pt-32 pb-16 px-4 md:px-8 relative"
+    >
+      <div className="max-w-5xl w-full mx-auto">
+        {/* Badge "Site Currículo" manuscrito */}
+        <div
+          className={`inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[var(--paper-light)] border-2 border-dashed border-[var(--margin-red)] rounded-full font-detail text-sm text-[var(--margin-red)] transition-all duration-700 ${
+            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+          }`}
+        >
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>site currículo</span>
         </div>
 
-        {/* Heading principal */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 animate-fade-in-heading text-[var(--text)]">
-          <span className="text-[var(--text)]">{profile.fullName.split(" ")[0]}</span>
-          <br />
-          <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
-            <span className="text-[var(--text)]">em</span>
-            <RotatingText
-              texts={rotatingWords}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-[var(--gold)] text-black overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-[0_0_24px_color-mix(in_srgb,var(--gold)_25%,transparent)]"
-              staggerFrom={"last"}
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden pb-1 sm:pb-1 md:pb-1"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2200}
-            />
-          </span>
-        </h1>
-
-        {/* Subheadline / Resumo */}
-        <p className="text-base sm:text-lg md:text-xl text-[var(--text-muted)] text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          {profile.tagline}
-        </p>
-
-        {/* Localização */}
-        <div className="flex items-center justify-center gap-2 text-[var(--text-subtle)] text-xs font-mono mb-8 animate-fade-in-subheading">
-          <MapPin className="w-3 h-3" />
-          <span>{profile.location}</span>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
-          <a
-            href={profile.whatsapp.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary group cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5" />
-            {profile.whatsapp.display}
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-
-          {profile.cvUrl && (
-            <a
-              href={profile.cvUrl}
-              download
-              className="btn-secondary group cursor-pointer"
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+          {/* Texto à esquerda */}
+          <div className="order-2 md:order-1">
+            <p
+              className={`font-detail text-xl text-[var(--ink-soft)] mb-2 transition-all duration-700 delay-100 ${
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+              }`}
             >
-              <Download className="w-5 h-5" />
-              Baixar CV
-            </a>
-          )}
+              {hero.greeting}
+            </p>
+
+            <h1 className="font-heading text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] leading-[0.95] font-bold text-[var(--ink)] mb-3">
+              {mounted ? (
+                <Typewriter
+                  text={profile.fullName}
+                  speed={70}
+                  showCursor={false}
+                />
+              ) : (
+                <span className="opacity-0">{profile.fullName}</span>
+              )}
+            </h1>
+
+            {/* Cargo / função manuscrito */}
+            <div className="relative inline-block mb-6">
+              <SquiggleDoodle
+                className="absolute -bottom-1 left-0 right-0 text-[var(--margin-red)] opacity-70"
+                size={300}
+              />
+              <p className="font-heading text-2xl md:text-3xl text-[var(--ink-soft)] italic relative">
+                {mounted ? (
+                  <Typewriter
+                    text={hero.subtitle}
+                    delay={1500}
+                    speed={40}
+                    showCursor={false}
+                  />
+                ) : (
+                  <span className="opacity-0">{hero.subtitle}</span>
+                )}
+              </p>
+            </div>
+
+            <p
+              className={`text-[var(--ink-muted)] leading-relaxed text-base md:text-lg max-w-xl mb-6 transition-all duration-700 delay-200 ${
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+              }`}
+            >
+              {hero.description}
+            </p>
+
+            <div
+              className={`flex items-center gap-1.5 text-sm text-[var(--ink-muted)] font-detail mb-8 transition-all duration-700 delay-300 ${
+                mounted ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              <span>{profile.location}</span>
+            </div>
+
+            <div
+              className={`flex flex-wrap items-center gap-3 transition-all duration-700 delay-400 ${
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              }`}
+            >
+              <a
+                href="#habilidades"
+                className="btn-paper btn-paper-primary"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.querySelector("#habilidades")?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                <span>{hero.ctaPrimary}</span>
+                <ArrowRight size={18} />
+              </a>
+
+              {profile.cvUrl && (
+                <a href={profile.cvUrl} download className="btn-paper">
+                  <Download size={16} />
+                  <span>{hero.ctaSecondary}</span>
+                </a>
+              )}
+            </div>
+
+            <div
+              className={`mt-8 flex items-center gap-2 text-sm transition-all duration-700 delay-500 ${
+                mounted ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60 animate-ping"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              </span>
+              <span className="font-detail text-[var(--ink-muted)]">
+                {hero.availableBadge}
+              </span>
+            </div>
+          </div>
+
+          {/* Polaroid à direita */}
+          <div className="order-1 md:order-2 flex justify-center md:justify-end relative">
+            <StarDoodle
+              className="absolute -top-2 -right-2 text-[var(--pen-blue)] animate-wobble"
+              size={32}
+            />
+            <StarDoodle
+              className="absolute bottom-4 -left-4 text-[var(--margin-red)]"
+              size={24}
+            />
+
+            <div
+              className={`transition-all duration-1000 ${
+                mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              }`}
+            >
+              <PolaroidAvatar size={240} />
+            </div>
+
+            {/* Seta riscada apontando pra polaroid */}
+            <ArrowDoodle
+              className="absolute -bottom-12 left-0 text-[var(--ink-soft)] hidden md:block"
+              size={100}
+            />
+          </div>
         </div>
       </div>
     </section>

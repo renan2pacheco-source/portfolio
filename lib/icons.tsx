@@ -5,7 +5,6 @@
 
 import {
   siAnydesk,
-  siArchlinux,
   siAstro,
   siAutocad,
   siCanva,
@@ -127,8 +126,7 @@ export const icons: IconMap = {
   sqlite: fromSimpleIcon(siSqlite),
   autocad: fromSimpleIcon(siAutocad),
   trello: fromSimpleIcon(siTrello),
-  notion: fromSimpleIcon(siNotion, '#FFFFFF'),
-  archlinux: fromSimpleIcon(siArchlinux),
+  notion: fromSimpleIcon(siNotion, '#000000'),
 }
 
 export function IconSvg({ iconKey, className }: { iconKey: string; className?: string }) {

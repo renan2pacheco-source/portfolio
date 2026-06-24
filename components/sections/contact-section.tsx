@@ -1,96 +1,117 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, MessageCircle, Mail, MapPin, Instagram, Github } from "lucide-react"
 import { profile } from "@/data/content"
+import { EnvelopeDoodle, HeartDoodle } from "@/components/doodles"
+import { MapPin, MessageCircle, Mail, Github, Instagram, ArrowRight } from "lucide-react"
+import { ViewportTypewriter } from "@/components/viewport-typewriter"
 
 export function ContactSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const ref = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
+    const el = ref.current
+    if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.15 }
     )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current)
-    }
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   return (
     <section
       id="contato"
-      ref={sectionRef}
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative z-10"
+      ref={ref}
+      className="py-20 md:py-28 px-4 md:px-8 relative"
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
+        <div className="flex items-center gap-3 mb-3 justify-center">
+          <EnvelopeDoodle className="text-[var(--ink)]" size={36} />
+          <h2 className="font-heading text-5xl md:text-6xl font-bold text-[var(--ink)]">
+            {visible ? <ViewportTypewriter text="Contato" speed={60} showCursor={false} /> : "Contato"}
+          </h2>
+        </div>
+        <p className="text-center font-detail text-[var(--ink-muted)] mb-8">
+          // aberto a oportunidades em suporte, atendimento, vendas, web, CRM, IA e design
+        </p>
+
         <div
-          className={`text-center p-8 md:p-12 rounded-3xl border border-[var(--gold)]/25 bg-[radial-gradient(35%_128px_at_50%_0%,color-mix(in_srgb,var(--gold)_12%,transparent),color-mix(in_srgb,var(--gold)_3%,transparent))] shadow-[0_0_40px_color-mix(in_srgb,var(--gold)_10%,transparent)] transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          className={`paper-card p-6 md:p-8 transition-all duration-700 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-[var(--text)] mb-4 text-balance leading-tight">
-            Vamos conversar sobre uma{" "}
-            <span className="font-semibold italic gradient-text">oportunidade</span>?
-          </h2>
-          <p className="text-base sm:text-lg text-[var(--text-muted)] mb-8 max-w-2xl mx-auto leading-relaxed">
-            Aberto a oportunidades em suporte técnico, atendimento, vendas, rotinas operacionais, produtividade e
-            tecnologia aplicada ao negócio.
-          </p>
-
-          {/* CTA primário: WhatsApp */}
+          {/* CTA WhatsApp grande */}
           <a
             href={profile.whatsapp.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-[var(--gold)] text-black rounded-full font-semibold text-base md:text-lg hover:bg-[var(--gold-glow)] transition-all duration-300 hover:scale-105 shadow-[0_0_30px_color-mix(in_srgb,var(--gold)_25%,transparent)] mb-8"
+            className="block mb-6 p-4 md:p-5 border-2 border-[var(--ink)] rounded-2xl bg-[var(--marker-yellow-soft)] hover:bg-[var(--marker-yellow)] transition-colors group"
           >
-            <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
-            {profile.whatsapp.display}
-            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-200" />
+            <div className="flex items-center gap-3">
+              <MessageCircle className="w-7 h-7 text-[var(--ink)]" />
+              <div className="flex-1">
+                <p className="font-detail text-xs text-[var(--ink-soft)] uppercase tracking-widest">
+                  whatsapp
+                </p>
+                <p className="font-heading text-2xl md:text-3xl text-[var(--ink)] font-bold">
+                  {profile.whatsapp.display}
+                </p>
+              </div>
+              <ArrowRight className="w-6 h-6 text-[var(--ink)] group-hover:translate-x-1 transition-transform" />
+            </div>
           </a>
 
           {/* Links secundários */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-            <a
-              href={`mailto:${profile.email}`}
-              className="group inline-flex items-center gap-2 border border-[var(--border)] bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-full text-sm text-[var(--text-muted)] hover:border-[var(--gold)]/50 hover:text-[var(--text)] transition-all"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Email</span>
-            </a>
-            {profile.links.github && (
+          <ul className="space-y-3 text-[var(--ink-soft)]">
+            <li className="flex items-center gap-3">
+              <Mail className="w-4 h-4 text-[var(--margin-red)] flex-shrink-0" />
+              <a
+                href={`mailto:${profile.email}`}
+                className="font-detail hover:text-[var(--ink)] transition-colors"
+              >
+                {profile.email}
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <Github className="w-4 h-4 text-[var(--ink)] flex-shrink-0" />
               <a
                 href={profile.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-[var(--border)] bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-full text-sm text-[var(--text-muted)] hover:border-[var(--gold)]/50 hover:text-[var(--text)] transition-all"
+                className="font-detail hover:text-[var(--ink)] transition-colors"
               >
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
+                github.com/renan2pacheco-source
               </a>
-            )}
-            {profile.links.instagram && (
+            </li>
+            <li className="flex items-center gap-3">
+              <Instagram className="w-4 h-4 text-[var(--margin-red)] flex-shrink-0" />
               <a
                 href={profile.links.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-[var(--border)] bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-full text-sm text-[var(--text-muted)] hover:border-[var(--gold)]/50 hover:text-[var(--text)] transition-all"
+                className="font-detail hover:text-[var(--ink)] transition-colors"
               >
-                <Instagram className="w-4 h-4" />
-                <span>Instagram</span>
+                @nucleo_digit4l
               </a>
-            )}
-          </div>
+            </li>
+            <li className="flex items-center gap-3">
+              <MapPin className="w-4 h-4 text-[var(--pen-blue)] flex-shrink-0" />
+              <span className="font-detail">{profile.location}</span>
+            </li>
+          </ul>
 
-          {/* Localização */}
-          <div className="flex items-center justify-center gap-2 text-[var(--text-subtle)] text-xs font-mono pt-4 border-t border-[var(--border)]/50">
-            <MapPin className="w-3 h-3" />
-            <span>{profile.location}</span>
+          {/* Decoração */}
+          <div className="mt-6 flex items-center gap-2 justify-end text-[var(--margin-red)]">
+            <span className="font-heading text-lg italic">vou adorar conversar</span>
+            <HeartDoodle className="text-[var(--margin-red)]" size={20} />
           </div>
         </div>
       </div>

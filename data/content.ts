@@ -7,9 +7,8 @@ export const profile = {
   name: 'Renan Pacheco',
   fullName: 'Renan Nunes Pacheco',
   initials: 'RP',
-  title: 'Currículo Profissional',
-  tagline:
-    'Estudante de Nutrição e Educação Física. Perfil autodidata, com experiência em suporte técnico, vendas, atendimento e rotinas operacionais.',
+  title: 'Currículo',
+  tagline: 'Currículo profissional',
   location: 'Vale do Anari, RO — Brasil',
   email: 'renan.nunes.pacheco@gmail.com',
   whatsapp: {
@@ -23,165 +22,149 @@ export const profile = {
     whatsapp: 'https://wa.me/5569992114236',
     email: 'mailto:renan.nunes.pacheco@gmail.com',
   },
-  cvUrl: '/cv-renan-nunes-pacheco.pdf',
+  cvUrl: '',
 }
 
-// Bio curta pra seção "Sobre"
-export const bio = {
-  intro: '22 anos, estudante de Nutrição e Educação Física, autodidata em tecnologia.',
+// Hero — texto exibido na capa
+export const hero = {
+  greeting: 'Olá, eu sou',
+  subtitle: 'Desenvolvedor | Criativo | Solucionador',
+  description:
+    'Transformo ideias em soluções digitais com criatividade, foco em detalhes e paixão pelo que faço.',
+  ctaPrimary: 'Ver meu trabalho',
+  ctaSecondary: 'Baixar CV',
+  availableBadge: 'Disponível para oportunidades',
+}
+
+// Sobre — texto corrido, sem repetir skills
+export const about = {
+  intro: 'Sou um profissional apaixonado por tecnologia e por resolver problemas reais.',
   paragraphs: [
-    'Tenho experiência com suporte técnico de computadores, vendas, trabalho autônomo/freelancer, atuação como personal trainer e rotina operacional em pavimentação urbana.',
-    'Cursando Nutrição e Educação Física. Sou autodidata em tecnologia: aprendi a usar ferramentas de produtividade, IA, design, planilhas e programação básica de forma independente.',
+    'Cursando Nutrição e Educação Física, com perfil autodidata em tecnologia. Aprendi a usar ferramentas de produtividade, IA, design, planilhas e programação básica de forma independente.',
     'Tecnologia, pra mim, é ferramenta de trabalho: uso pra organizar informações, automatizar tarefas, criar documentos, apoiar atendimento e melhorar processos do dia a dia.',
+  ],
+  qualities: [
+    'Comunicação clara',
+    'Pensamento analítico',
+    'Organização',
+    'Aprendizado contínuo',
+    'Foco em resultado',
   ],
 }
 
-// Palavras que giram no hero
-export const rotatingWords = [
-  'Suporte Técnico',
-  'Atendimento',
+// Palavras que giram no hero (verbos curtos, sem duplicar competências)
+export const rotatingRoles = [
+  'Suporte',
   'Vendas',
+  'Web',
+  'IA',
   'Automação',
-  'Operação',
 ]
 
 // Navegação principal
 export const navLinks = [
   { name: 'Sobre', href: '#sobre' },
-  { name: 'Trajetória', href: '#trajetoria' },
-  { name: 'Stack', href: '#stack' },
-  { name: 'Competências', href: '#competencias' },
+  { name: 'Habilidades', href: '#habilidades' },
+  { name: 'O que entrego', href: '#entrego' },
   { name: 'Contato', href: '#contato' },
 ]
 
 // =============================================================
-// STACK ATUAL — ferramentas que uso no dia a dia
+// HABILIDADES — Stack atual (com tag "atual") + experiência
 // =============================================================
-export const currentStack = [
+export const skills = [
+  // --- Em uso atual (daily driver) ---
   {
     name: 'OpenCode CLI',
     description: 'Coding agent via terminal',
     iconKey: 'opencode',
+    current: true,
   },
   {
     name: 'Hermes Agent',
     description: 'Agente de IA local com TUI',
     iconKey: 'hermes',
+    current: true,
   },
   {
     name: 'CachyOS Linux',
     description: 'Arch-based, otimizado p/ performance',
     iconKey: 'cachyos',
+    current: true,
   },
   {
     name: 'VS Code',
     description: 'Editor principal',
     iconKey: 'vscode',
+    current: true,
   },
   {
     name: 'GitHub',
     description: 'Versionamento e deploy',
     iconKey: 'github',
+    current: true,
   },
   {
     name: 'Vercel',
     description: 'Hosting e preview deploys',
     iconKey: 'vercel',
+    current: true,
   },
   {
     name: 'TypeScript',
     description: 'Linguagem principal',
     iconKey: 'typescript',
+    current: true,
   },
   {
     name: 'Astro',
     description: 'Framework de sites estáticos',
     iconKey: 'astro',
+    current: true,
   },
   {
     name: 'Python',
     description: 'Scripts e automação',
     iconKey: 'python',
+    current: true,
   },
   {
     name: 'HTML',
     description: 'Estruturação',
     iconKey: 'html',
+    current: true,
   },
   {
     name: 'JavaScript',
     description: 'Lógica de front',
     iconKey: 'javascript',
+    current: true,
   },
-]
 
-// =============================================================
-// STACK DE EXPERIÊNCIA — ferramentas que já usei/trabalhei
-// =============================================================
-export const experienceStack = [
-  {
-    category: 'Suporte Técnico',
-    items: [
-      { name: 'Windows', iconKey: 'windows' },
-      { name: 'AnyDesk', iconKey: 'anydesk' },
-      { name: 'TeamViewer', iconKey: 'teamviewer' },
-      { name: 'Hardware', iconKey: 'intel' },
-    ],
-  },
-  {
-    category: 'Produtividade & Office',
-    items: [
-      { name: 'Word', iconKey: 'word' },
-      { name: 'Excel', iconKey: 'excel' },
-      { name: 'PowerPoint', iconKey: 'powerpoint' },
-      { name: 'Google Docs', iconKey: 'googledocs' },
-      { name: 'Google Sheets', iconKey: 'googlesheets' },
-    ],
-  },
-  {
-    category: 'IA Generativa',
-    items: [
-      { name: 'ChatGPT', iconKey: 'openai' },
-      { name: 'Claude', iconKey: 'claude' },
-      { name: 'Gemini', iconKey: 'gemini' },
-    ],
-  },
-  {
-    category: 'Design & Criação',
-    items: [
-      { name: 'Canva', iconKey: 'canva' },
-      { name: 'Figma', iconKey: 'figma' },
-      { name: 'Illustrator', iconKey: 'illustrator' },
-    ],
-  },
-  {
-    category: 'Tecnologia Web',
-    items: [
-      { name: 'CSS', iconKey: 'css' },
-    ],
-  },
-  {
-    category: 'Linux & Shell',
-    items: [
-      { name: 'Linux', iconKey: 'linux' },
-      { name: 'Ubuntu', iconKey: 'ubuntu' },
-    ],
-  },
-  {
-    category: 'Banco de Dados',
-    items: [
-      { name: 'PostgreSQL', iconKey: 'postgresql' },
-      { name: 'SQLite', iconKey: 'sqlite' },
-    ],
-  },
-  {
-    category: 'Rotina Operacional',
-    items: [
-      { name: 'AutoCAD', iconKey: 'autocad' },
-      { name: 'Trello', iconKey: 'trello' },
-      { name: 'Notion', iconKey: 'notion' },
-    ],
-  },
+  // --- Experiência anterior ---
+  { name: 'Windows',       iconKey: 'windows',     current: false },
+  { name: 'AnyDesk',       iconKey: 'anydesk',     current: false },
+  { name: 'TeamViewer',    iconKey: 'teamviewer',  current: false },
+  { name: 'Hardware',      iconKey: 'intel',       current: false },
+  { name: 'Word',          iconKey: 'word',        current: false },
+  { name: 'Excel',         iconKey: 'excel',       current: false },
+  { name: 'PowerPoint',    iconKey: 'powerpoint',  current: false },
+  { name: 'Google Docs',   iconKey: 'googledocs',  current: false },
+  { name: 'Google Sheets', iconKey: 'googlesheets',current: false },
+  { name: 'ChatGPT',       iconKey: 'openai',      current: false },
+  { name: 'Claude',        iconKey: 'claude',      current: false },
+  { name: 'Gemini',        iconKey: 'gemini',      current: false },
+  { name: 'Canva',         iconKey: 'canva',       current: false },
+  { name: 'Figma',         iconKey: 'figma',       current: false },
+  { name: 'Illustrator',   iconKey: 'illustrator', current: false },
+  { name: 'CSS',           iconKey: 'css',         current: false },
+  { name: 'Linux',         iconKey: 'linux',       current: false },
+  { name: 'Ubuntu',        iconKey: 'ubuntu',      current: false },
+  { name: 'PostgreSQL',    iconKey: 'postgresql',  current: false },
+  { name: 'SQLite',        iconKey: 'sqlite',      current: false },
+  { name: 'AutoCAD',       iconKey: 'autocad',     current: false },
+  { name: 'Trello',        iconKey: 'trello',      current: false },
+  { name: 'Notion',        iconKey: 'notion',      current: false },
 ]
 
 // =============================================================
@@ -189,89 +172,60 @@ export const experienceStack = [
 // =============================================================
 export const competencies = [
   {
-    name: 'Melhoria de fluxo de trabalho',
+    name: 'Suporte técnico & atendimento',
     description:
-      'Mapeio tarefas repetitivas, organizo etapas e proponho formas simples de reduzir retrabalho, atrasos e perda de informação.',
+      'Resolvo problemas técnicos de pessoas com comunicação clara, paciência e foco em continuidade do trabalho.',
+    tags: ['Comunicação', 'Paciência', 'Resolução'],
+    color: 'yellow',
+  },
+  {
+    name: 'Vendas & relacionamento',
+    description:
+      'Identifico necessidade, conduzo negociação e faço pós-atendimento pra melhorar conversão e confiança.',
+    tags: ['Vendas', 'Negociação', 'Pós-venda'],
+    color: 'pink',
+  },
+  {
+    name: 'Criação de websites',
+    description:
+      'Desenvolvo sites estáticos e portfólios com TypeScript, React, Astro e Next.js — do design ao deploy.',
+    tags: ['Astro', 'Next.js', 'TypeScript'],
+    color: 'blue',
+  },
+  {
+    name: 'CRM & automação',
+    description:
+      'Organizo contatos, oportunidades e rotinas em CRMs. Automatizo fluxos pra reduzir trabalho manual.',
+    tags: ['CRM', 'Automação', 'Planilhas'],
+    color: 'green',
+  },
+  {
+    name: 'Agentes de IA',
+    description:
+      'Crio agentes especializados com LLMs e TUIs, integrando ao fluxo real de trabalho com Hermes e OpenCode.',
+    tags: ['IA Generativa', 'TUI', 'Integração'],
+    color: 'yellow',
+  },
+  {
+    name: 'Design gráfico',
+    description:
+      'Crio materiais visuais com Canva, Figma e Illustrator — peças para redes, apresentação e identidade.',
+    tags: ['Canva', 'Figma', 'Illustrator'],
+    color: 'pink',
+  },
+  {
+    name: 'Melhoria de processos',
+    description:
+      'Mapeio tarefas repetitivas, organizo etapas e proponho formas simples de reduzir retrabalho e atrasos.',
     tags: ['Processos', 'Organização', 'Produtividade'],
+    color: 'blue',
   },
   {
-    name: 'Suporte técnico e atendimento',
+    name: 'Rotinas operacionais',
     description:
-      'Ajudo pessoas a resolver problemas técnicos com comunicação clara, paciência e foco em continuidade do trabalho.',
-    tags: ['Suporte', 'Computadores', 'Clientes'],
-  },
-  {
-    name: 'Vendas e relacionamento',
-    description:
-      'Experiência com atendimento, identificação de necessidade, negociação e acompanhamento para melhorar conversão e confiança.',
-    tags: ['Vendas', 'Comunicação', 'Pós-atendimento'],
-  },
-  {
-    name: 'Tecnologia aplicada ao negócio',
-    description:
-      'Uso planilhas, IA, documentos, páginas simples e automações para apoiar rotinas administrativas, comerciais e operacionais.',
-    tags: ['IA', 'Planilhas', 'Automação'],
-  },
-]
-
-// =============================================================
-// TRAJETÓRIA PROFISSIONAL
-// =============================================================
-export const experience = [
-  {
-    role: 'Rotina Operacional / Pavimentação Urbana',
-    company: 'Runas',
-    period: 'Atual',
-    location: 'Vale do Anari, RO',
-    highlights: [
-      'Apoio em projetos e rotinas de pavimentação urbana',
-      'Leitura de plantas, medições e organização de informações técnicas',
-      'Acompanhamento de demandas com foco em prazo, clareza e responsabilidade',
-    ],
-  },
-  {
-    role: 'Suporte Técnico de Computadores',
-    company: 'Atendimento técnico',
-    period: 'Experiência prática',
-    location: 'RO',
-    highlights: [
-      'Diagnóstico e resolução de problemas em computadores e sistemas',
-      'Formatação, instalação, manutenção básica e orientação ao usuário',
-      'Atendimento claro para pessoas com diferentes níveis de conhecimento técnico',
-    ],
-  },
-  {
-    role: 'Vendas e Atendimento',
-    company: 'Experiência comercial',
-    period: 'Experiência prática',
-    location: 'RO',
-    highlights: [
-      'Comunicação direta com clientes e identificação de necessidades',
-      'Apoio ao processo de venda, negociação e pós-atendimento',
-      'Organização de informações para melhorar acompanhamento e conversão',
-    ],
-  },
-  {
-    role: 'Freelancer Autônomo',
-    company: 'Serviços independentes',
-    period: 'Experiência prática',
-    location: 'Remoto / presencial',
-    highlights: [
-      'Entrega de serviços com autonomia, responsabilidade e adaptação ao cliente',
-      'Criação de materiais digitais, organização de demandas e suporte operacional',
-      'Uso de ferramentas digitais para resolver problemas com baixo custo e agilidade',
-    ],
-  },
-  {
-    role: 'Personal Trainer',
-    company: 'Atendimento individual',
-    period: 'Experiência prática',
-    location: 'RO',
-    highlights: [
-      'Planejamento e acompanhamento de treinos com foco em objetivo e rotina',
-      'Comunicação, disciplina e adaptação conforme perfil de cada pessoa',
-      'Visão prática de saúde, constância e evolução mensurável',
-    ],
+      'Apoio operação de campo: leitura de plantas, medições, pavimentação urbana e acompanhamento de demandas.',
+    tags: ['Operação', 'Pavimentação', 'Campo'],
+    color: 'green',
   },
 ]
 

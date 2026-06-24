@@ -1,18 +1,33 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Suspense } from "react"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { Caveat, Inter, Architects_Daughter } from "next/font/google"
 import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const geist = GeistSans
-const geistMono = GeistMono
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+  weight: ["400", "500", "700"],
+})
+
+const architectsDaughter = Architects_Daughter({
+  subsets: ["latin"],
+  variable: "--font-architects-daughter",
+  display: "swap",
+  weight: "400",
+})
 
 export const metadata: Metadata = {
-  title: "Renan Pacheco — Currículo",
+  title: "Renan Nunes Pacheco — Currículo",
   description:
-    "Currículo profissional de Renan Nunes Pacheco — Suporte técnico, atendimento, vendas, automação e rotina operacional. Vale do Anari, RO.",
+    "Currículo profissional de Renan Nunes Pacheco — Suporte técnico, atendimento, vendas, criação de websites, CRM, agentes de IA e design gráfico. Vale do Anari, RO.",
   authors: [{ name: "Renan Nunes Pacheco" }],
   keywords: [
     "Renan Pacheco",
@@ -22,11 +37,15 @@ export const metadata: Metadata = {
     "RO",
     "atendimento",
     "vendas",
-    "automação",
+    "agentes de IA",
+    "CRM",
+    "criação de websites",
+    "design gráfico",
   ],
   openGraph: {
-    title: "Renan Pacheco — Currículo",
-    description: "Suporte técnico, atendimento, vendas e automação. Vale do Anari, RO.",
+    title: "Renan Nunes Pacheco — Currículo",
+    description:
+      "Suporte técnico, atendimento, vendas, criação de websites, CRM, agentes de IA e design gráfico. Vale do Anari, RO.",
     type: "website",
   },
 }
@@ -37,9 +56,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
-        <Suspense fallback={null}>{children}</Suspense>
+    <html
+      lang="pt-BR"
+      className={`${inter.variable} ${caveat.variable} ${architectsDaughter.variable}`}
+    >
+      <body className="font-sans antialiased">
+        {children}
         <SpeedInsights />
       </body>
     </html>
