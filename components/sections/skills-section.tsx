@@ -3,7 +3,7 @@
 import { motion } from "motion/react"
 import { skills } from "@/data/content"
 import { IconSvg } from "@/lib/icons"
-import { SquiggleDoodle, HeartDoodle } from "@/components/doodles"
+import { HeartDoodle } from "@/components/doodles"
 import { ViewportTypewriter } from "@/components/viewport-typewriter"
 
 export function SkillsSection() {
@@ -30,12 +30,15 @@ export function SkillsSection() {
 
         {/* Stack atual — em uso */}
         <div className="mb-12">
-          <div className="flex flex-wrap items-center gap-2 mb-8 overflow-visible">
-            <HeartDoodle className="text-[var(--margin-red)]" size={24} />
-            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)] leading-[1.22] pb-1 overflow-visible">
-              <span className="underline-squiggle">Em uso</span>
-            </h3>
-            <span className="tag-hand tag-hand-accent ml-2">daily driver</span>
+          <div className="mb-8">
+            <div className="inline-flex flex-wrap items-center gap-2 tape-title tape-title-yellow">
+              <HeartDoodle className="text-[var(--margin-red)]" size={24} />
+              <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)] leading-none">
+                Em uso
+              </h3>
+              <span className="tag-hand tag-hand-accent ml-1">daily driver</span>
+            </div>
+            <div className="section-rule mt-4 max-w-[160px] md:max-w-[220px]" aria-hidden="true" />
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4">
@@ -65,15 +68,17 @@ export function SkillsSection() {
 
         {/* Divisor manuscrito */}
         <div className="my-10">
-          <SquiggleDoodle className="text-[var(--ink-muted)] opacity-40 mx-auto" size={400} />
+          <div className="section-rule mx-auto max-w-[280px] md:max-w-[360px] opacity-50" aria-hidden="true" />
         </div>
 
         {/* Experiência anterior */}
         <div>
-          <div className="flex items-center gap-2 mb-5">
-            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink-soft)]">
-              Já trabalhei ou tive contato
-            </h3>
+          <div className="mb-5">
+            <div className="inline-flex items-center gap-2 tape-title tape-title-blue">
+              <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink-soft)] leading-none">
+                Já trabalhei ou tive contato
+              </h3>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4">

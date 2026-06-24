@@ -323,6 +323,14 @@
     background: #f6b1c1;
   }
 
+  .tape-title-yellow {
+    background: #f8ef8e;
+  }
+
+  .tape-title-blue {
+    background: #bddcf7;
+  }
+
   /* --- Botões manuscritos --- */
   .btn-paper {
     display: inline-flex;
