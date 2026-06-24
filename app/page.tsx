@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className="min-h-screen relative">
       <BindingHoles />
       <PaperNav />
-      <main className="relative z-10">
+      <main className="relative z-10 lg:pl-24 xl:pl-28 2xl:pl-32">
         <HeroSection />
         <AboutSection />
         <SkillsSection />

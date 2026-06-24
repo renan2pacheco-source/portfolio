@@ -19,11 +19,11 @@ export function HeroSection() {
       <div className="max-w-5xl w-full mx-auto">
         {/* Badge "Site Currículo" manuscrito */}
         <div
-          className={`inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[var(--paper-light)] border-2 border-dashed border-[var(--margin-red)] rounded-full font-detail text-sm text-[var(--margin-red)] transition-all duration-700 ${
+          className={`inline-flex items-center gap-2 mb-8 px-4 py-1.5 bg-[var(--paper-light)] border-2 border-dashed border-[var(--margin-red)] rounded-full font-detail text-base text-[var(--margin-red)] transition-all duration-700 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
           }`}
         >
-          <Sparkles className="w-3.5 h-3.5" />
+          <Sparkles className="w-4 h-4" />
           <span>site currículo</span>
         </div>
 
@@ -31,14 +31,14 @@ export function HeroSection() {
           {/* Texto à esquerda */}
           <div className="order-2 md:order-1">
             <p
-              className={`font-detail text-xl text-[var(--ink-soft)] mb-2 transition-all duration-700 delay-100 ${
+              className={`font-detail text-2xl text-[var(--ink-soft)] mb-2 transition-all duration-700 delay-100 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
             >
               {hero.greeting}
             </p>
 
-            <h1 className="font-heading text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] leading-[0.95] font-bold text-[var(--ink)] mb-3">
+            <h1 className="font-heading text-[3.2rem] sm:text-[4rem] md:text-[6rem] leading-[0.95] font-bold text-[var(--ink)] mb-3">
               {mounted ? (
                 <Typewriter
                   text={profile.fullName}
@@ -56,7 +56,7 @@ export function HeroSection() {
                 className="absolute -bottom-1 left-0 right-0 text-[var(--margin-red)] opacity-70"
                 size={300}
               />
-              <p className="font-heading text-2xl md:text-3xl text-[var(--ink-soft)] italic relative">
+              <p className="font-heading text-2xl md:text-4xl text-[var(--ink-soft)] italic relative">
                 {mounted ? (
                   <Typewriter
                     text={hero.subtitle}
@@ -71,7 +71,7 @@ export function HeroSection() {
             </div>
 
             <p
-              className={`text-[var(--ink-muted)] leading-relaxed text-base md:text-lg max-w-xl mb-6 transition-all duration-700 delay-200 ${
+              className={`text-[var(--ink-muted)] leading-relaxed text-lg md:text-xl max-w-xl mb-6 transition-all duration-700 delay-200 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
             >
@@ -79,11 +79,11 @@ export function HeroSection() {
             </p>
 
             <div
-              className={`flex items-center gap-1.5 text-sm text-[var(--ink-muted)] font-detail mb-8 transition-all duration-700 delay-300 ${
+              className={`flex items-center gap-1.5 text-base text-[var(--ink-muted)] font-detail mb-8 transition-all duration-700 delay-300 ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
-              <MapPin className="w-3.5 h-3.5" />
+              <MapPin className="w-4 h-4" />
               <span>{profile.location}</span>
             </div>
 
@@ -101,19 +101,19 @@ export function HeroSection() {
                 }}
               >
                 <span>{hero.ctaPrimary}</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={20} />
               </a>
 
               {profile.cvUrl && (
                 <a href={profile.cvUrl} download className="btn-paper">
-                  <Download size={16} />
+                  <Download size={18} />
                   <span>{hero.ctaSecondary}</span>
                 </a>
               )}
             </div>
 
             <div
-              className={`mt-8 flex items-center gap-2 text-sm transition-all duration-700 delay-500 ${
+              className={`mt-8 flex items-center gap-2 text-base transition-all duration-700 delay-500 ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -121,7 +121,7 @@ export function HeroSection() {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60 animate-ping"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
               </span>
-              <span className="font-detail text-[var(--ink-muted)]">
+              <span className="font-detail text-[var(--ink-muted)] text-[0.95rem]">
                 {hero.availableBadge}
               </span>
             </div>
@@ -131,11 +131,11 @@ export function HeroSection() {
           <div className="order-1 md:order-2 flex justify-center md:justify-end relative">
             <StarDoodle
               className="absolute -top-2 -right-2 text-[var(--pen-blue)] animate-wobble"
-              size={32}
+              size={36}
             />
             <StarDoodle
               className="absolute bottom-4 -left-4 text-[var(--margin-red)]"
-              size={24}
+              size={28}
             />
 
             <div
@@ -143,13 +143,13 @@ export function HeroSection() {
                 mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"
               }`}
             >
-              <PolaroidAvatar size={240} />
+              <PolaroidAvatar size={260} />
             </div>
 
             {/* Seta riscada apontando pra polaroid */}
             <ArrowDoodle
               className="absolute -bottom-12 left-0 text-[var(--ink-soft)] hidden md:block"
-              size={100}
+              size={110}
             />
           </div>
         </div>

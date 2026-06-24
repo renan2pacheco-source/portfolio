@@ -36,11 +36,11 @@ export function CompetenciesSection() {
     <section id="entrego" ref={ref} className="py-20 md:py-28 px-4 md:px-8 relative">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-center gap-3 mb-12">
-          <StarDoodle className="text-[var(--margin-red)]" size={28} />
-          <h2 className="font-heading text-5xl md:text-6xl font-bold text-[var(--ink)] text-center">
+          <StarDoodle className="text-[var(--margin-red)]" size={32} />
+          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)] text-center">
             {visible ? <ViewportTypewriter text="O que eu entrego" speed={50} showCursor={false} /> : "O que eu entrego"}
           </h2>
-          <StarDoodle className="text-[var(--pen-blue)]" size={28} />
+          <StarDoodle className="text-[var(--pen-blue)]" size={32} />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7">
@@ -52,18 +52,18 @@ export function CompetenciesSection() {
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="text-[var(--ink-soft)] font-detail text-xs mb-1.5">
+              <div className="text-[var(--ink-soft)] font-detail text-sm mb-1.5">
                 0{i + 1}
               </div>
-              <h3 className="font-heading text-xl md:text-[1.4rem] font-bold text-[var(--ink)] mb-2.5 leading-tight">
+              <h3 className="font-heading text-2xl md:text-[1.5rem] font-bold text-[var(--ink)] mb-2.5 leading-tight">
                 {c.name}
               </h3>
-              <p className="text-sm text-[var(--ink-soft)] leading-relaxed mb-3">
+              <p className="text-base text-[var(--ink-soft)] leading-relaxed mb-3">
                 {c.description}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {c.tags.map((tag) => (
-                  <span key={tag} className="tag-hand text-[0.65rem]">
+                  <span key={tag} className="tag-hand text-[0.78rem]">
                     {tag}
                   </span>
                 ))}

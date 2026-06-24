@@ -35,7 +35,7 @@ export function AboutSection() {
         {/* Título manuscrito */}
         <div className="flex items-center gap-3 mb-12">
           <LightbulbDoodle className="text-[var(--ink)]" size={42} />
-          <h2 className="font-heading text-5xl md:text-6xl font-bold text-[var(--ink)]">
+          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)]">
             <span className="underline-squiggle">
               {visible ? <ViewportTypewriter text="Sobre mim" speed={60} showCursor={false} /> : "Sobre mim"}
             </span>
@@ -49,13 +49,13 @@ export function AboutSection() {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="font-heading text-2xl md:text-3xl text-[var(--ink-soft)] italic mb-6">
+            <p className="font-heading text-2xl md:text-4xl text-[var(--ink-soft)] italic mb-6">
               {about.intro}
             </p>
             {about.paragraphs.map((p, i) => (
               <p
                 key={i}
-                className="text-[var(--ink-soft)] leading-relaxed mb-4 text-base md:text-lg"
+                className="text-[var(--ink-soft)] leading-relaxed mb-4 text-lg md:text-[1.15rem]"
               >
                 {p}
               </p>
@@ -63,11 +63,11 @@ export function AboutSection() {
 
             {/* Formação + idiomas (post-it) */}
             <div className="sticky-note sticky-note-yellow mt-6 inline-block max-w-md">
-              <h3 className="font-heading text-xl text-[var(--ink)] mb-2 flex items-center gap-2">
+              <h3 className="font-heading text-2xl text-[var(--ink)] mb-2 flex items-center gap-2">
                 <PencilDoodle className="text-[var(--ink-soft)]" size={20} />
                 <span>Formação</span>
               </h3>
-              <ul className="space-y-1.5 text-sm text-[var(--ink-soft)]">
+              <ul className="space-y-1.5 text-base text-[var(--ink-soft)]">
                 {education.map((ed, i) => (
                   <li key={i}>
                     <span className="font-medium">{ed.course}</span>
@@ -77,7 +77,7 @@ export function AboutSection() {
                 ))}
               </ul>
 
-              <h3 className="font-heading text-xl text-[var(--ink)] mt-4 mb-2">
+              <h3 className="font-heading text-2xl text-[var(--ink)] mt-4 mb-2">
                 Idiomas
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -97,16 +97,16 @@ export function AboutSection() {
             }`}
           >
             <div className="sticky-note sticky-note-pink max-w-md md:ml-auto">
-              <h3 className="font-heading text-2xl text-[var(--ink)] mb-4">
+              <h3 className="font-heading text-2xl md:text-3xl text-[var(--ink)] mb-4">
                 O que levo comigo
               </h3>
               <ul className="space-y-2.5">
                 {about.qualities.map((q, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-2.5 text-base text-[var(--ink-soft)]"
+                    className="flex items-center gap-2.5 text-[var(--ink-soft)] text-lg"
                   >
-                    <CheckDoodle className="text-[var(--margin-red)] flex-shrink-0" size={18} />
+                    <CheckDoodle className="text-[var(--margin-red)] flex-shrink-0" size={20} />
                     <span>{q}</span>
                   </li>
                 ))}

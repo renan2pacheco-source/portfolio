@@ -9,14 +9,14 @@
   /* Paleta caderno */
   --paper:        #f5efe0;   /* fundo papel creme */
   --paper-light:  #fbf6e9;   /* papel mais claro para cards/post-its */
-  --paper-dark:   #ebe1c5;   /* sombra do papel */
+  --paper-dark:   #d9ceb4;   /* sombra do papel (mais escuro p/ contraste) */
   --ink:          #2a2520;   /* tinta marrom escuro */
-  --ink-soft:     #4a3f33;   /* tinta secundária */
-  --ink-muted:    #6b5a45;   /* texto esmaecido */
+  --ink-soft:     #3d342a;   /* tinta secundária (mais escura) */
+  --ink-muted:    #4f4235;   /* texto esmaecido (mais escuro) */
   --rule-blue:    #a8c5e0;   /* linhas pautadas */
   --rule-blue-soft: #d4e1ed; /* linhas mais claras */
   --margin-red:   #c0392b;   /* margem esquerda */
-  --margin-red-soft: #e57368;/* margem esmaecida */
+  --margin-red-soft: #cc5a50;/* margem esmaecida (mais visível) */
 
   /* Cores de destaque (caneta marca-texto) */
   --marker-yellow: #fce94f;
@@ -109,6 +109,8 @@
     background-color: var(--paper);
     color: var(--ink);
     font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -132,6 +134,11 @@
         var(--rule-blue-soft) 32px
       );
     background-attachment: fixed;
+  }
+  @media (max-width: 1023px) {
+    body {
+      background-image: none;
+    }
   }
   ::selection {
     background-color: var(--marker-yellow);
@@ -178,6 +185,9 @@
     justify-content: space-around;
     align-items: center;
   }
+  @media (max-width: 1023px) {
+    .binding-holes { display: none; }
+  }
   .binding-hole {
     width: 14px;
     height: 14px;
@@ -194,7 +204,8 @@
     left: 12px;
     font-family: var(--font-detail), cursive;
     color: var(--margin-red);
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     transform: rotate(-90deg);
     transform-origin: left center;
     white-space: nowrap;
@@ -258,10 +269,10 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1.4rem;
+    padding: 0.7rem 1.6rem;
     font-family: var(--font-heading), cursive;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     color: var(--ink);
     background: var(--paper-light);
     border: 2px solid var(--ink);
@@ -287,14 +298,27 @@
     background: var(--ink-soft);
   }
 
+  /* --- Wrapper de ícone (forçar svg a ocupar container) --- */
+  .icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-wrap > svg,
+  .icon-wrap > span > svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
   /* --- Tags manuscritas --- */
   .tag-hand {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.15rem 0.7rem;
+    gap: 0.35rem;
+    padding: 0.25rem 0.85rem;
     font-family: var(--font-detail), cursive;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     background: var(--paper-dark);
     color: var(--ink-soft);
     border: 1px dashed var(--ink-muted);

@@ -34,12 +34,12 @@ export function ContactSection() {
     >
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center gap-3 mb-3 justify-center">
-          <EnvelopeDoodle className="text-[var(--ink)]" size={36} />
-          <h2 className="font-heading text-5xl md:text-6xl font-bold text-[var(--ink)]">
+          <EnvelopeDoodle className="text-[var(--ink)]" size={40} />
+          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)]">
             {visible ? <ViewportTypewriter text="Contato" speed={60} showCursor={false} /> : "Contato"}
           </h2>
         </div>
-        <p className="text-center font-detail text-[var(--ink-muted)] mb-8">
+        <p className="text-center font-detail text-[var(--ink-muted)] mb-8 text-lg">
           // aberto a oportunidades em suporte, atendimento, vendas, web, CRM, IA e design
         </p>
 
@@ -58,7 +58,7 @@ export function ContactSection() {
             <div className="flex items-center gap-3">
               <MessageCircle className="w-7 h-7 text-[var(--ink)]" />
               <div className="flex-1">
-                <p className="font-detail text-xs text-[var(--ink-soft)] uppercase tracking-widest">
+                <p className="font-detail text-sm text-[var(--ink-soft)] uppercase tracking-widest">
                   whatsapp
                 </p>
                 <p className="font-heading text-2xl md:text-3xl text-[var(--ink)] font-bold">
@@ -70,9 +70,9 @@ export function ContactSection() {
           </a>
 
           {/* Links secundários */}
-          <ul className="space-y-3 text-[var(--ink-soft)]">
+          <ul className="space-y-3.5 text-[var(--ink-soft)] text-lg">
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[var(--margin-red)] flex-shrink-0" />
+              <Mail className="w-5 h-5 text-[var(--margin-red)] flex-shrink-0" />
               <a
                 href={`mailto:${profile.email}`}
                 className="font-detail hover:text-[var(--ink)] transition-colors"
@@ -81,7 +81,7 @@ export function ContactSection() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Github className="w-4 h-4 text-[var(--ink)] flex-shrink-0" />
+              <Github className="w-5 h-5 text-[var(--ink)] flex-shrink-0" />
               <a
                 href={profile.links.github}
                 target="_blank"
@@ -92,7 +92,7 @@ export function ContactSection() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Instagram className="w-4 h-4 text-[var(--margin-red)] flex-shrink-0" />
+              <Instagram className="w-5 h-5 text-[var(--margin-red)] flex-shrink-0" />
               <a
                 href={profile.links.instagram}
                 target="_blank"
@@ -103,15 +103,15 @@ export function ContactSection() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-[var(--pen-blue)] flex-shrink-0" />
+              <MapPin className="w-5 h-5 text-[var(--pen-blue)] flex-shrink-0" />
               <span className="font-detail">{profile.location}</span>
             </li>
           </ul>
 
           {/* Decoração */}
           <div className="mt-6 flex items-center gap-2 justify-end text-[var(--margin-red)]">
-            <span className="font-heading text-lg italic">vou adorar conversar</span>
-            <HeartDoodle className="text-[var(--margin-red)]" size={20} />
+            <span className="font-heading text-xl italic">vou adorar conversar</span>
+            <HeartDoodle className="text-[var(--margin-red)]" size={22} />
           </div>
         </div>
       </div>

@@ -38,21 +38,21 @@ export function SkillsSection() {
       <div className="max-w-5xl mx-auto">
         {/* Título centralizado com setas */}
         <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="text-2xl text-[var(--ink-soft)]">≣</span>
-          <h2 className="font-heading text-5xl md:text-6xl font-bold text-[var(--ink)] text-center">
+          <span className="text-3xl text-[var(--ink-soft)]">≣</span>
+          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)] text-center">
             {visible ? <ViewportTypewriter text="Habilidades" speed={60} showCursor={false} /> : "Habilidades"}
           </h2>
-          <span className="text-2xl text-[var(--ink-soft)]">≣</span>
+          <span className="text-3xl text-[var(--ink-soft)]">≣</span>
         </div>
-        <p className="font-detail text-center text-[var(--ink-muted)] mb-12">
+        <p className="font-detail text-center text-[var(--ink-muted)] mb-12 text-lg">
           // o que uso no dia a dia + o que já trabalhei
         </p>
 
         {/* Stack atual — em uso */}
         <div className="mb-12">
           <div className="flex items-center gap-2 mb-6">
-            <HeartDoodle className="text-[var(--margin-red)]" size={20} />
-            <h3 className="font-heading text-2xl md:text-3xl text-[var(--ink)]">
+            <HeartDoodle className="text-[var(--margin-red)]" size={24} />
+            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)]">
               <span className="underline-squiggle">Em uso</span>
             </h3>
             <span className="tag-hand tag-hand-accent ml-2">daily driver</span>
@@ -68,11 +68,11 @@ export function SkillsSection() {
                 style={{ transitionDelay: `${i * 50}ms` }}
                 title={skill.description}
               >
-                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+                <div className="icon-wrap w-10 h-10 flex-shrink-0">
                   <IconSvg iconKey={skill.iconKey} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-detail text-sm text-[var(--ink)] truncate">
+                  <p className="font-detail text-base text-[var(--ink)] truncate">
                     {skill.name}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export function SkillsSection() {
         {/* Experiência anterior */}
         <div>
           <div className="flex items-center gap-2 mb-6">
-            <h3 className="font-heading text-2xl md:text-3xl text-[var(--ink-soft)]">
+            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink-soft)]">
               Já trabalhei ou tive contato
             </h3>
           </div>
@@ -103,10 +103,10 @@ export function SkillsSection() {
                 }`}
                 style={{ transitionDelay: `${(i + current.length) * 30}ms` }}
               >
-                <div className="w-7 h-7 flex-shrink-0 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity [&>svg]:w-full [&>svg]:h-full">
+                <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
                   <IconSvg iconKey={skill.iconKey} />
                 </div>
-                <span className="font-detail text-xs text-[var(--ink-muted)] truncate group-hover:text-[var(--ink-soft)]">
+                <span className="font-detail text-[15px] text-[var(--ink-muted)] truncate group-hover:text-[var(--ink-soft)]">
                   {skill.name}
                 </span>
               </div>
