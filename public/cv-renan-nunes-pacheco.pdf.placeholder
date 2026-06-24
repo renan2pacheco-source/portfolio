@@ -1,7 +1,0 @@
-# Coloque seu currículo em PDF aqui com o nome cv-renan-nunes-pacheco.pdf
-# O botão "Baixar CV em PDF" no hero aponta para este caminho.
-#
-# Enquanto o PDF real não está aqui, o link vai dar 404.
-# Soluções temporárias:
-#   1. Coloque o PDF real neste caminho
-#   2. Ou aponte o link no src/data/content.ts (campo cvUrl) para um link externo

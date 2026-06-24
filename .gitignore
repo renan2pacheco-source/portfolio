@@ -1,26 +1,27 @@
-# build
-dist/
-.astro/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# deps
-node_modules/
+# dependencies
+/node_modules
 
-# logs
-*.log
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
+.pnpm-debug.log*
 
-# env
-.env
-.env.production
-.env.local
+# env files
+.env*
 
-# editor
-.vscode/
-.idea/
-.DS_Store
+# vercel
+.vercel
 
-# OS
-Thumbs.db
+# typescript
+*.tsbuildinfo
+next-env.d.ts
