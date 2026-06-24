@@ -22,7 +22,7 @@ export function PolaroidAvatar({ size = 220 }: PolaroidAvatarProps) {
         style={{ width: size, paddingBottom: size * 0.32 }}
       >
         <div
-          className="aspect-square flex flex-col items-center justify-center relative overflow-hidden"
+          className="aspect-square relative overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #fdf6e3 0%, #f4e8c1 100%)",
           }}
@@ -30,12 +30,12 @@ export function PolaroidAvatar({ size = 220 }: PolaroidAvatarProps) {
           <img
             src="/portfolio/sticker-icons/profile-photo.png"
             alt={profile.name}
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
           {/* Label manuscrito embaixo */}
           <div
-            className="font-detail text-[var(--ink-soft)] mt-1"
+            className="absolute bottom-2 left-0 right-0 text-center font-detail text-[var(--ink-soft)]"
             style={{ fontSize: size * 0.085 }}
           >
             // user
