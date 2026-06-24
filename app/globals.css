@@ -259,11 +259,28 @@
 
   /* --- Sublinhado irregular (rabisco) --- */
   .underline-squiggle {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.35em;
+  }
+  .underline-squiggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.02em;
+    height: 8px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 4' width='12' height='4'%3E%3Cpath d='M0 3 Q3 0 6 3 T12 3' fill='none' stroke='%23c0392b' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-position: 0 100%;
     background-size: 12px 4px;
-    padding-bottom: 4px;
+    pointer-events: none;
+  }
+
+  .subtitle-squiggle {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* --- Botões manuscritos --- */
@@ -271,10 +288,10 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.7rem 1.6rem;
+    padding: 0.85rem 1.85rem;
     font-family: var(--font-heading), cursive;
     font-weight: 700;
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     color: var(--ink);
     background: var(--paper-light);
     border: 2px solid var(--ink);

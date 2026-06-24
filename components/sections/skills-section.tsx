@@ -32,7 +32,7 @@ export function SkillsSection() {
         <div className="mb-12">
           <div className="flex items-center gap-2 mb-6">
             <HeartDoodle className="text-[var(--margin-red)]" size={24} />
-            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)]">
+            <h3 className="font-heading text-3xl md:text-4xl text-[var(--ink)] leading-[1.15]">
               <span className="underline-squiggle">Em uso</span>
             </h3>
             <span className="tag-hand tag-hand-accent ml-2">daily driver</span>
@@ -54,7 +54,7 @@ export function SkillsSection() {
                   <IconSvg iconKey={skill.iconKey} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-detail text-base text-[var(--ink)] truncate">
+                  <p className="font-detail text-[0.95rem] sm:text-base text-[var(--ink)] leading-tight break-words">
                     {skill.name}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ export function SkillsSection() {
                 <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
                   <IconSvg iconKey={skill.iconKey} />
                 </div>
-                <span className="font-detail text-[15px] text-[var(--ink-muted)] truncate group-hover:text-[var(--ink-soft)]">
+                <span className="font-detail text-sm sm:text-[15px] text-[var(--ink-muted)] leading-tight break-words group-hover:text-[var(--ink-soft)]">
                   {skill.name}
                 </span>
               </motion.div>

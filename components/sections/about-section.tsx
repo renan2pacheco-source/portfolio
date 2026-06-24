@@ -15,7 +15,7 @@ export function AboutSection() {
         {/* Título manuscrito */}
         <div className="flex items-center gap-3 mb-12">
           <LightbulbDoodle className="text-[var(--ink)]" size={42} />
-          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)]">
+          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)] leading-[1.15]">
             <span className="underline-squiggle">
               <ViewportTypewriter text="Sobre mim" speed={60} showCursor={false} />
             </span>

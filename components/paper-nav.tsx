@@ -60,7 +60,7 @@ export function PaperNav() {
     if (element) {
       const rect = element.getBoundingClientRect()
       const currentScrollY = window.pageYOffset || document.documentElement.scrollTop
-      const targetPosition = Math.max(0, rect.top + currentScrollY - 90)
+      const targetPosition = Math.max(0, rect.top + currentScrollY - 110)
       window.scrollTo({ top: targetPosition, behavior: "smooth" })
     }
     setIsOpen(false)
@@ -76,13 +76,13 @@ export function PaperNav() {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="fixed top-3 md:top-6 left-1/2 z-50"
+        className="fixed top-4 md:top-6 lg:top-7 left-1/2 z-50"
       >
-        <div className="px-3 md:px-5 py-2 md:py-2.5 bg-[var(--paper)] border-2 border-[var(--ink)] rounded-full shadow-[3px_3px_0_var(--ink)]">
-          <div className="flex items-center gap-4 md:gap-6">
+        <div className="px-4 md:px-6 lg:px-7 py-2.5 md:py-3 bg-[var(--paper)] border-2 border-[var(--ink)] rounded-full shadow-[4px_4px_0_var(--ink)]">
+          <div className="flex items-center gap-4 md:gap-7 lg:gap-8">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="font-heading text-[var(--ink)] text-xl md:text-2xl font-bold hover:text-[var(--margin-red)] transition-colors cursor-pointer"
+              className="font-heading text-[var(--ink)] text-2xl md:text-[2rem] lg:text-[2.2rem] font-bold hover:text-[var(--margin-red)] transition-colors cursor-pointer"
               aria-label="Voltar ao topo"
             >
               {profile.initials}
@@ -95,7 +95,7 @@ export function PaperNav() {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`relative font-heading text-lg px-3 py-1 transition-colors cursor-pointer ${
+                    className={`relative font-heading text-xl lg:text-[1.45rem] px-3.5 lg:px-4 py-1.5 transition-colors cursor-pointer ${
                       isActive
                         ? "text-[var(--margin-red)]"
                         : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
@@ -103,7 +103,7 @@ export function PaperNav() {
                   >
                     {item.name}
                     {isActive && (
-                      <span className="absolute left-3 right-3 -bottom-0.5 h-1">
+                      <span className="absolute left-3.5 right-3.5 bottom-0 h-[6px] pointer-events-none">
                         <svg viewBox="0 0 60 6" preserveAspectRatio="none" className="w-full h-full">
                           <path
                             d="M0 3 Q 15 0, 30 3 T 60 3"
@@ -124,19 +124,19 @@ export function PaperNav() {
               href={profile.whatsapp.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 btn-paper btn-paper-primary text-sm px-3 py-1.5"
-              style={{ fontSize: "1rem", padding: "0.4rem 0.9rem" }}
+              className="hidden md:inline-flex items-center gap-2 btn-paper btn-paper-primary"
+              style={{ fontSize: "1.1rem", padding: "0.55rem 1rem" }}
             >
               <span>Contato</span>
-              <ArrowRight size={14} />
+              <ArrowRight size={16} />
             </a>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-[var(--ink)] hover:text-[var(--margin-red)] transition-colors cursor-pointer p-1"
+              className="md:hidden text-[var(--ink)] hover:text-[var(--margin-red)] transition-colors cursor-pointer p-1.5"
               aria-label="Menu"
             >
-              {isOpen ? <X size={22} /> : <Menu size={22} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -150,17 +150,17 @@ export function PaperNav() {
         />
       )}
       <div
-        className={`md:hidden fixed top-20 left-3 right-3 z-40 transition-all duration-300 ${
+        className={`md:hidden fixed top-24 left-4 right-4 z-40 transition-all duration-300 ${
           isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-[var(--paper)] border-2 border-[var(--ink)] rounded-2xl shadow-[4px_4px_0_var(--ink)] p-3">
+        <div className="bg-[var(--paper)] border-2 border-[var(--ink)] rounded-2xl shadow-[4px_4px_0_var(--ink)] p-4">
           <div className="flex flex-col">
             {navLinks.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="font-heading text-lg text-[var(--ink-soft)] hover:text-[var(--margin-red)] hover:bg-[var(--marker-yellow-soft)] rounded-lg px-3 py-2.5 text-left transition-colors cursor-pointer"
+                className="font-heading text-xl text-[var(--ink-soft)] hover:text-[var(--margin-red)] hover:bg-[var(--marker-yellow-soft)] rounded-lg px-4 py-3 text-left transition-colors cursor-pointer"
               >
                 {item.name}
               </button>

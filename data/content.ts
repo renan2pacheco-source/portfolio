@@ -22,7 +22,7 @@ export const profile = {
     whatsapp: 'https://wa.me/5569992114236',
     email: 'mailto:renan2pacheco@gmail.com',
   },
-  cvUrl: '',
+  cvUrl: `${process.env.NODE_ENV === 'production' ? '/portfolio' : ''}/Curriculo_Renan_Nunes_Pacheco_Visual.pdf`,
 }
 
 // Hero — texto exibido na capa
