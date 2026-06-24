@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { motion } from "motion/react"
 import { competencies } from "@/data/content"
 import { StarDoodle, SquiggleDoodle } from "@/components/doodles"
 import { ViewportTypewriter } from "@/components/viewport-typewriter"
@@ -13,44 +13,27 @@ const colorClass: Record<string, string> = {
 }
 
 export function CompetenciesSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section id="entrego" ref={ref} className="py-20 md:py-28 px-4 md:px-8 relative">
+    <section id="entrego" className="py-20 md:py-28 px-4 md:px-8 relative">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-center gap-3 mb-12">
-          <StarDoodle className="text-[var(--margin-red)]" size={32} />
+          <StarDoodle className="text-[var(--margin-red)] animate-float" size={32} />
           <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)] text-center">
-            {visible ? <ViewportTypewriter text="O que eu entrego" speed={50} showCursor={false} /> : "O que eu entrego"}
+            <ViewportTypewriter text="O que eu entrego" speed={50} showCursor={false} />
           </h2>
-          <StarDoodle className="text-[var(--pen-blue)]" size={32} />
+          <StarDoodle className="text-[var(--pen-blue)] animate-float" size={32} />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7">
           {competencies.map((c, i) => (
-            <div
+            <motion.div
               key={c.name}
-              className={`sticky-note ${colorClass[c.color] || "sticky-note-yellow"} transition-all duration-700 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: i * 0.05 }}
+              whileHover={{ scale: 1.02 }}
+              className={`sticky-note ${colorClass[c.color] || "sticky-note-yellow"}`}
             >
               <div className="text-[var(--ink-soft)] font-detail text-sm mb-1.5">
                 0{i + 1}
@@ -68,7 +51,7 @@ export function CompetenciesSection() {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

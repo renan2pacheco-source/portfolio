@@ -113,15 +113,16 @@ export function HeroSection() {
             </div>
 
             <div
-              className={`mt-8 flex items-center gap-2 text-base transition-all duration-700 delay-500 ${
+              className={`mt-8 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-green-600/30 bg-green-50/40 transition-all duration-700 delay-500 ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
-              <span className="relative flex h-2.5 w-2.5">
+              <span className="relative flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-70 animate-pulse-ripple"></span>
                 <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60 animate-ping"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 ring-2 ring-green-200"></span>
               </span>
-              <span className="font-detail text-[var(--ink-muted)] text-[0.95rem]">
+              <span className="font-detail text-[var(--ink-soft)] text-[0.95rem] font-medium">
                 {hero.availableBadge}
               </span>
             </div>
@@ -134,7 +135,7 @@ export function HeroSection() {
               size={36}
             />
             <StarDoodle
-              className="absolute bottom-4 -left-4 text-[var(--margin-red)]"
+              className="absolute bottom-4 -left-4 text-[var(--margin-red)] animate-float"
               size={28}
             />
 

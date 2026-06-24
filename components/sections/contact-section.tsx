@@ -1,52 +1,34 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { motion } from "motion/react"
 import { profile } from "@/data/content"
 import { EnvelopeDoodle, HeartDoodle } from "@/components/doodles"
-import { MapPin, MessageCircle, Mail, Github, Instagram, ArrowRight } from "lucide-react"
+import { MapPin, MessageCircle, Mail, Instagram, ArrowRight } from "lucide-react"
 import { ViewportTypewriter } from "@/components/viewport-typewriter"
 
 export function ContactSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section
       id="contato"
-      ref={ref}
       className="py-20 md:py-28 px-4 md:px-8 relative"
     >
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center gap-3 mb-3 justify-center">
           <EnvelopeDoodle className="text-[var(--ink)]" size={40} />
           <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)]">
-            {visible ? <ViewportTypewriter text="Contato" speed={60} showCursor={false} /> : "Contato"}
+            <ViewportTypewriter text="Contato" speed={60} showCursor={false} />
           </h2>
         </div>
         <p className="text-center font-detail text-[var(--ink-muted)] mb-8 text-lg">
           // aberto a oportunidades em suporte, atendimento, vendas, web, CRM, IA e design
         </p>
 
-        <div
-          className={`paper-card p-6 md:p-8 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6 }}
+          className="paper-card p-6 md:p-8"
         >
           {/* CTA WhatsApp grande */}
           <a
@@ -81,17 +63,6 @@ export function ContactSection() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Github className="w-5 h-5 text-[var(--ink)] flex-shrink-0" />
-              <a
-                href={profile.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-detail hover:text-[var(--ink)] transition-colors"
-              >
-                github.com/renan2pacheco-source
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
               <Instagram className="w-5 h-5 text-[var(--margin-red)] flex-shrink-0" />
               <a
                 href={profile.links.instagram}
@@ -113,7 +84,7 @@ export function ContactSection() {
             <span className="font-heading text-xl italic">vou adorar conversar</span>
             <HeartDoodle className="text-[var(--margin-red)]" size={22} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

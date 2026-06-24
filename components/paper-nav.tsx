@@ -1,19 +1,17 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { motion } from "motion/react"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { navLinks, profile } from "@/data/content"
 
 export function PaperNav() {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const [hasLoaded, setHasLoaded] = useState(false)
   const [activeSection, setActiveSection] = useState("inicio")
   const lastScrollY = useRef(0)
 
   useEffect(() => {
-    const timer = setTimeout(() => setHasLoaded(true), 100)
-
     const controlNavbar = () => {
       if (typeof window === "undefined") return
       const currentScrollY = window.scrollY
@@ -32,7 +30,6 @@ export function PaperNav() {
     window.addEventListener("scroll", controlNavbar, { passive: true })
     return () => {
       window.removeEventListener("scroll", controlNavbar)
-      clearTimeout(timer)
     }
   }, [])
 
@@ -71,10 +68,15 @@ export function PaperNav() {
 
   return (
     <>
-      <nav
-        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          isVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
-        } ${hasLoaded ? "opacity-100" : "opacity-0"}`}
+      <motion.nav
+        initial={{ y: -100, x: "-50%", opacity: 0 }}
+        animate={{
+          y: isVisible ? 0 : -100,
+          x: "-50%",
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        className="fixed top-3 md:top-6 left-1/2 z-50"
       >
         <div className="px-3 md:px-5 py-2 md:py-2.5 bg-[var(--paper)] border-2 border-[var(--ink)] rounded-full shadow-[3px_3px_0_var(--ink)]">
           <div className="flex items-center gap-4 md:gap-6">
@@ -138,7 +140,7 @@ export function PaperNav() {
             </button>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile menu */}
       {isOpen && (

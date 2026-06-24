@@ -229,19 +229,21 @@
     position: relative;
     padding: 1.25rem 1.25rem 1.5rem;
     box-shadow: var(--shadow-sticky);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.3s ease;
     color: var(--ink);
-  }
-  .sticky-note:hover {
-    transform: translateY(-3px) rotate(0deg) !important;
-    box-shadow:
-      2px 4px 8px rgba(80, 60, 30, 0.15),
-      6px 12px 24px rgba(80, 60, 30, 0.10);
   }
   .sticky-note-yellow { background: var(--marker-yellow-soft); transform: rotate(-1.5deg); }
   .sticky-note-pink   { background: var(--marker-pink);       transform: rotate(1.2deg); }
   .sticky-note-green  { background: var(--marker-green);      transform: rotate(-0.8deg); }
   .sticky-note-blue   { background: var(--marker-blue);       transform: rotate(1.5deg); }
+  .sticky-note:hover {
+    transform: translateY(-4px) rotate(0deg);
+    box-shadow:
+      2px 4px 8px rgba(80, 60, 30, 0.15),
+      6px 14px 28px rgba(80, 60, 30, 0.10);
+  }
 
   /* --- Marca-texto (highlight) --- */
   .marker-highlight {
@@ -278,12 +280,15 @@
     border: 2px solid var(--ink);
     border-radius: 999px;
     box-shadow: 3px 3px 0 var(--ink);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      background 0.2s ease;
     cursor: pointer;
   }
   .btn-paper:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--ink);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--ink);
     background: var(--marker-yellow-soft);
   }
   .btn-paper:active {
@@ -453,6 +458,18 @@
 }
 .animate-float-note { animation: float-note 5s ease-in-out infinite; }
 
+@keyframes float {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite alternate; }
+
+@keyframes pulse-ripple {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.6); opacity: 0;   }
+}
+.animate-pulse-ripple { animation: pulse-ripple 1.6s ease-out infinite; }
+
 @keyframes draw-line {
   0%   { stroke-dashoffset: 100; }
   100% { stroke-dashoffset: 0; }
@@ -462,7 +479,9 @@
   .animate-fade-in-up,
   .animate-fade-in,
   .animate-wobble,
-  .animate-float-note {
+  .animate-float-note,
+  .animate-float,
+  .animate-pulse-ripple {
     animation: none;
     opacity: 1;
     transform: none;

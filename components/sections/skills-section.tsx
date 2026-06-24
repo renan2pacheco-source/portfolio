@@ -1,38 +1,18 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { motion } from "motion/react"
 import { skills } from "@/data/content"
 import { IconSvg } from "@/lib/icons"
 import { SquiggleDoodle, HeartDoodle } from "@/components/doodles"
 import { ViewportTypewriter } from "@/components/viewport-typewriter"
 
 export function SkillsSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   const current = skills.filter((s) => s.current)
   const experience = skills.filter((s) => !s.current)
 
   return (
     <section
       id="habilidades"
-      ref={ref}
       className="py-20 md:py-28 px-4 md:px-8 relative"
     >
       <div className="max-w-5xl mx-auto">
@@ -40,7 +20,7 @@ export function SkillsSection() {
         <div className="flex items-center justify-center gap-3 mb-4">
           <span className="text-3xl text-[var(--ink-soft)]">≣</span>
           <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)] text-center">
-            {visible ? <ViewportTypewriter text="Habilidades" speed={60} showCursor={false} /> : "Habilidades"}
+            <ViewportTypewriter text="Habilidades" speed={60} showCursor={false} />
           </h2>
           <span className="text-3xl text-[var(--ink-soft)]">≣</span>
         </div>
@@ -60,12 +40,14 @@ export function SkillsSection() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
             {current.map((skill, i) => (
-              <div
+              <motion.div
                 key={skill.name}
-                className={`paper-card p-3 flex items-center gap-3 group transition-all duration-500 ${
-                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: `${i * 50}ms` }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+                whileHover={{ scale: 1.02 }}
+                className="paper-card p-3 flex items-center gap-3 group cursor-default"
                 title={skill.description}
               >
                 <div className="icon-wrap w-10 h-10 flex-shrink-0">
@@ -76,7 +58,7 @@ export function SkillsSection() {
                     {skill.name}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -96,12 +78,14 @@ export function SkillsSection() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
             {experience.map((skill, i) => (
-              <div
+              <motion.div
                 key={skill.name}
-                className={`bg-[var(--paper-light)]/50 border border-dashed border-[var(--rule-blue)] rounded p-2.5 flex items-center gap-2.5 group hover:border-[var(--ink-muted)] transition-all duration-500 ${
-                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: `${(i + current.length) * 30}ms` }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                whileHover={{ scale: 1.02 }}
+                className="bg-[var(--paper-light)]/50 border border-dashed border-[var(--rule-blue)] rounded p-2.5 flex items-center gap-2.5 group hover:border-[var(--ink-muted)] cursor-default"
               >
                 <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
                   <IconSvg iconKey={skill.iconKey} />
@@ -109,7 +93,7 @@ export function SkillsSection() {
                 <span className="font-detail text-[15px] text-[var(--ink-muted)] truncate group-hover:text-[var(--ink-soft)]">
                   {skill.name}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

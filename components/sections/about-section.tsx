@@ -1,34 +1,14 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { motion } from "motion/react"
 import { about, education, languages } from "@/data/content"
 import { LightbulbDoodle, CheckDoodle, PencilDoodle } from "@/components/doodles"
 import { ViewportTypewriter } from "@/components/viewport-typewriter"
 
 export function AboutSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section
       id="sobre"
-      ref={ref}
       className="py-20 md:py-28 px-4 md:px-8 relative"
     >
       <div className="max-w-5xl mx-auto">
@@ -37,17 +17,18 @@ export function AboutSection() {
           <LightbulbDoodle className="text-[var(--ink)]" size={42} />
           <h2 className="font-heading text-5xl md:text-7xl font-bold text-[var(--ink)]">
             <span className="underline-squiggle">
-              {visible ? <ViewportTypewriter text="Sobre mim" speed={60} showCursor={false} /> : "Sobre mim"}
+              <ViewportTypewriter text="Sobre mim" speed={60} showCursor={false} />
             </span>
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Texto corrido à esquerda */}
-          <div
-            className={`transition-all duration-700 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0 }}
           >
             <p className="font-heading text-2xl md:text-4xl text-[var(--ink-soft)] italic mb-6">
               {about.intro}
@@ -88,13 +69,14 @@ export function AboutSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Lista de qualidades (post-it) à direita */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="sticky-note sticky-note-pink max-w-md md:ml-auto">
               <h3 className="font-heading text-2xl md:text-3xl text-[var(--ink)] mb-4">
@@ -102,17 +84,21 @@ export function AboutSection() {
               </h3>
               <ul className="space-y-2.5">
                 {about.qualities.map((q, i) => (
-                  <li
+                  <motion.li
                     key={i}
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
                     className="flex items-center gap-2.5 text-[var(--ink-soft)] text-lg"
                   >
                     <CheckDoodle className="text-[var(--margin-red)] flex-shrink-0" size={20} />
                     <span>{q}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
