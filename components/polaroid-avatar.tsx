@@ -19,10 +19,27 @@ export function PolaroidAvatar({ size = 220 }: PolaroidAvatarProps) {
         className="polaroid inline-block"
         role="img"
         aria-label={`Avatar de ${profile.name}`}
-        style={{ width: size, paddingBottom: size * 0.32 }}
+        style={{ width: size }}
       >
+        {/* Estrelas decorativas atrás/ao redor da foto */}
+        <span
+          className="absolute -top-3 -right-3 text-[var(--pen-blue)] z-0 pointer-events-none"
+          style={{ fontSize: size * 0.12 }}
+          aria-hidden="true"
+        >
+          ★
+        </span>
+        <span
+          className="absolute -bottom-1 -left-3 text-[var(--margin-red)] z-0 pointer-events-none"
+          style={{ fontSize: size * 0.09 }}
+          aria-hidden="true"
+        >
+          ✦
+        </span>
+
+        {/* Área da foto */}
         <div
-          className="aspect-square relative overflow-hidden"
+          className="aspect-square relative overflow-hidden z-10"
           style={{
             background: "linear-gradient(135deg, #fdf6e3 0%, #f4e8c1 100%)",
           }}
@@ -33,32 +50,22 @@ export function PolaroidAvatar({ size = 220 }: PolaroidAvatarProps) {
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
-          {/* Label manuscrito embaixo */}
+        </div>
+
+        {/* Faixa branca inferior com label e nome */}
+        <div className="relative z-10 pt-2 pb-1 text-center">
           <div
-            className="absolute bottom-2 left-0 right-0 text-center font-detail text-[var(--ink-soft)]"
-            style={{ fontSize: size * 0.085 }}
+            className="font-detail text-[var(--ink-soft)] leading-none mb-0.5"
+            style={{ fontSize: size * 0.07 }}
           >
             // user
           </div>
-          {/* Estrelinhas decorativas */}
-          <span
-            className="absolute top-2 right-2 text-[var(--pen-blue)]"
-            style={{ fontSize: size * 0.1 }}
+          <div
+            className="font-heading text-[var(--ink-soft)] leading-none"
+            style={{ fontSize: size * 0.09 }}
           >
-            ★
-          </span>
-          <span
-            className="absolute bottom-3 left-2 text-[var(--margin-red)]"
-            style={{ fontSize: size * 0.08 }}
-          >
-            ✦
-          </span>
-        </div>
-        <div
-          className="absolute bottom-3 left-0 right-0 text-center font-heading text-[var(--ink-soft)]"
-          style={{ fontSize: size * 0.085 }}
-        >
-          {profile.name.split(" ")[0]}
+            {profile.name.split(" ")[0]}
+          </div>
         </div>
       </div>
     </motion.div>

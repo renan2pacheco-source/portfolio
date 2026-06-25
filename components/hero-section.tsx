@@ -134,18 +134,19 @@ export function HeroSection() {
           </div>
 
           {/* Polaroid à direita */}
-          <div className="order-2 flex justify-center md:justify-end relative mt-2 md:mt-0">
+          <div className="order-2 flex justify-center md:justify-end relative mt-2 md:mt-0 py-10 px-10 md:px-14">
+            {/* Elementos decorativos atrás/ao redor da polaroid */}
             <StarDoodle
-              className="absolute -top-2 md:-top-2 right-0 md:-right-2 text-[var(--pen-blue)] animate-wobble"
-              size={36}
+              className="absolute -top-2 md:-top-3 right-0 md:-right-2 text-[var(--pen-blue)] animate-wobble -z-10"
+              size={44}
             />
             <StarDoodle
-              className="absolute bottom-4 left-0 md:-left-4 text-[var(--margin-red)] animate-float"
-              size={28}
+              className="absolute bottom-20 md:bottom-24 -left-3 md:-left-6 text-[var(--margin-red)] animate-float -z-10"
+              size={34}
             />
 
             <div
-              className={`transition-all duration-1000 ${
+              className={`relative z-0 transition-all duration-1000 ${
                 mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"
               }`}
             >
@@ -154,8 +155,8 @@ export function HeroSection() {
 
             {/* Seta riscada apontando pra polaroid */}
             <ArrowDoodle
-              className="absolute -bottom-12 left-0 text-[var(--ink-soft)] hidden md:block"
-              size={110}
+              className="absolute -bottom-1 md:bottom-0 left-6 md:left-4 text-[var(--ink-soft)] hidden md:block -z-10"
+              size={120}
             />
           </div>
         </div>
