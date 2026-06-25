@@ -126,20 +126,36 @@ export const icons: IconMap = {
   autocad: { svg: '', color: '#E54B3B', src: '/portfolio/sticker-icons/autocad.png' },
 }
 
-export function IconSvg({ iconKey, className }: { iconKey: string; className?: string }) {
+export function IconSvg({
+  iconKey,
+  className,
+  ariaHidden = false,
+}: {
+  iconKey: string
+  className?: string
+  ariaHidden?: boolean
+}) {
   const def = icons[iconKey]
   if (!def) return null
 
-   if (def.src) {
-    return <img src={def.src} alt={iconKey} className={className} />
+  if (def.src) {
+    return <img src={def.src} alt="" aria-hidden={ariaHidden} className={className} />
+  }
+
+  let svg = def.svg
+  if (ariaHidden) {
+    // Força o SVG interno a ficar invisível para leitores de tela,
+    // já que o nome da skill já é lido pelo texto adjacente.
+    svg = svg.replace(/<svg\b/i, '<svg aria-hidden="true" ')
   }
 
   return (
     <span
       className={className}
       role="img"
-      aria-label={iconKey}
-      dangerouslySetInnerHTML={{ __html: def.svg }}
+      aria-label=""
+      aria-hidden={ariaHidden}
+      dangerouslySetInnerHTML={{ __html: svg }}
     />
   )
 }

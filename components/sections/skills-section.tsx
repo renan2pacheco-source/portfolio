@@ -53,8 +53,8 @@ export function SkillsSection() {
                 className="paper-card min-h-[84px] p-3 flex items-center gap-3 group cursor-default"
                 title={skill.description}
               >
-                <div className="icon-wrap w-10 h-10 flex-shrink-0">
-                  <IconSvg iconKey={skill.iconKey} />
+                <div className="icon-wrap w-10 h-10 flex-shrink-0" aria-hidden="true">
+                  <IconSvg iconKey={skill.iconKey} ariaHidden />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-detail text-base sm:text-[1.08rem] text-[var(--ink)] leading-tight break-words">
@@ -92,8 +92,8 @@ export function SkillsSection() {
                 whileHover={{ scale: 1.02 }}
                 className="bg-[var(--paper-light)]/50 border border-dashed border-[var(--rule-blue)] rounded min-h-[74px] p-2.5 flex items-center gap-2.5 group hover:border-[var(--ink-muted)] cursor-default"
               >
-                <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
-                  <IconSvg iconKey={skill.iconKey} />
+                <div className="icon-wrap w-8 h-8 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+                  <IconSvg iconKey={skill.iconKey} ariaHidden />
                 </div>
                 <span className="font-detail text-[0.95rem] sm:text-base text-[var(--ink-muted)] leading-tight break-words group-hover:text-[var(--ink-soft)]">
                   {skill.name}

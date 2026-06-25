@@ -39,30 +39,38 @@ export function HeroSection() {
             </p>
 
             <h1 className="font-heading text-[3.5rem] sm:text-[4.6rem] md:text-[6.4rem] xl:text-[7.2rem] leading-[1.02] md:leading-[0.92] font-bold text-[var(--ink)] mb-4 text-balance">
-              {mounted ? (
-                <Typewriter
-                  text={profile.fullName}
-                  speed={70}
-                  showCursor={false}
-                />
-              ) : (
-                <span className="opacity-0">{profile.fullName}</span>
-              )}
+              {/* Texto real para SEO e leitores de tela */}
+              <span className="sr-only">{profile.fullName}</span>
+              {/* Animação visual apenas */}
+              <span aria-hidden="true">
+                {mounted ? (
+                  <Typewriter
+                    text={profile.fullName}
+                    speed={70}
+                    showCursor={false}
+                  />
+                ) : (
+                  <span className="opacity-0">{profile.fullName}</span>
+                )}
+              </span>
             </h1>
 
             {/* Cargo / função manuscrito */}
             <div className="inline-flex flex-col items-center md:items-start mb-6 max-w-full">
               <p className="font-heading text-[1.9rem] sm:text-[2.2rem] md:text-[3.2rem] lg:text-[3.6rem] text-[var(--ink-soft)] italic relative leading-[1.1]">
-                {mounted ? (
-                  <Typewriter
-                    text={hero.subtitle}
-                    delay={1500}
-                    speed={40}
-                    showCursor={false}
-                  />
-                ) : (
-                  <span className="opacity-0">{hero.subtitle}</span>
-                )}
+                <span className="sr-only">{hero.subtitle}</span>
+                <span aria-hidden="true">
+                  {mounted ? (
+                    <Typewriter
+                      text={hero.subtitle}
+                      delay={1500}
+                      speed={40}
+                      showCursor={false}
+                    />
+                  ) : (
+                    <span className="opacity-0">{hero.subtitle}</span>
+                  )}
+                </span>
               </p>
               <span className="hero-subtitle-line mt-2 md:mt-3" aria-hidden="true" />
             </div>

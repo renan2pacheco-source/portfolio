@@ -63,7 +63,7 @@ portfolio/
 │       ├── competencies-section.tsx
 │       └── contact-section.tsx
 ├── data/
-│   └── content.ts          # TODO o conteúdo do site
+│   └── content.ts          # Conteúdo do currículo
 ├── lib/
 │   └── icons.tsx           # Simple Icons + custom SVGs
 ├── public/                 # Assets estáticos
