@@ -48,7 +48,9 @@ export function PolaroidAvatar({ size = 220 }: PolaroidAvatarProps) {
             src="/portfolio/sticker-icons/profile-photo.png"
             alt={profile.name}
             className="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
 

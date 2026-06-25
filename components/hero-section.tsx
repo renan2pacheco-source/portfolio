@@ -1,5 +1,6 @@
 "use client"
 
+import { useReducedMotion } from "motion/react"
 import { ArrowRight, Download, MapPin, MessageCircle, Sparkles } from "lucide-react"
 import { profile, hero } from "@/data/content"
 import { PolaroidAvatar } from "./polaroid-avatar"
@@ -8,6 +9,7 @@ import { StarDoodle, ArrowDoodle } from "./doodles"
 import { useEffect, useState } from "react"
 
 export function HeroSection() {
+  const shouldReduceMotion = useReducedMotion()
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
@@ -43,14 +45,14 @@ export function HeroSection() {
               <span className="sr-only">{profile.fullName}</span>
               {/* Animação visual apenas */}
               <span aria-hidden="true">
-                {mounted ? (
+                {mounted && !shouldReduceMotion ? (
                   <Typewriter
                     text={profile.fullName}
                     speed={70}
                     showCursor={false}
                   />
                 ) : (
-                  <span className="opacity-0">{profile.fullName}</span>
+                  <span>{profile.fullName}</span>
                 )}
               </span>
             </h1>
@@ -60,7 +62,7 @@ export function HeroSection() {
               <p className="font-heading text-[1.9rem] sm:text-[2.2rem] md:text-[3.2rem] lg:text-[3.6rem] text-[var(--ink-soft)] italic relative leading-[1.1]">
                 <span className="sr-only">{hero.subtitle}</span>
                 <span aria-hidden="true">
-                  {mounted ? (
+                  {mounted && !shouldReduceMotion ? (
                     <Typewriter
                       text={hero.subtitle}
                       delay={1500}
@@ -68,7 +70,7 @@ export function HeroSection() {
                       showCursor={false}
                     />
                   ) : (
-                    <span className="opacity-0">{hero.subtitle}</span>
+                    <span>{hero.subtitle}</span>
                   )}
                 </span>
               </p>

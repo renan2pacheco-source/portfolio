@@ -1,5 +1,6 @@
 "use client"
 
+import { useReducedMotion } from "motion/react"
 import { useEffect, useState } from "react"
 
 interface TypewriterProps {
@@ -10,6 +11,7 @@ interface TypewriterProps {
   showCursor?: boolean
   onComplete?: () => void
   loop?: boolean
+  animate?: boolean
 }
 
 export function Typewriter({
@@ -20,10 +22,16 @@ export function Typewriter({
   showCursor = true,
   onComplete,
   loop = false,
+  animate = true,
 }: TypewriterProps) {
+  const shouldReduceMotion = useReducedMotion()
   const [displayed, setDisplayed] = useState("")
   const [done, setDone] = useState(false)
   const [started, setStarted] = useState(false)
+
+  if (!animate || shouldReduceMotion) {
+    return <span className={className}>{text}</span>
+  }
 
   useEffect(() => {
     const startTimer = setTimeout(() => setStarted(true), delay)

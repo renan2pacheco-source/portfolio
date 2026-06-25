@@ -1,5 +1,6 @@
 "use client"
 
+import { useReducedMotion } from "motion/react"
 import { useEffect, useRef, useState } from "react"
 import { Typewriter } from "./typewriter"
 
@@ -21,15 +22,21 @@ export function ViewportTypewriter({
   as = "span",
 }: ViewportTypewriterProps) {
   const ref = useRef<HTMLElement | null>(null)
-  const [visible, setVisible] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+  const [shouldAnimate, setShouldAnimate] = useState(false)
 
   useEffect(() => {
+    if (shouldReduceMotion || typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      return
+    }
+
     const el = ref.current
     if (!el) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true)
+          setShouldAnimate(true)
           observer.disconnect()
         }
       },
@@ -37,7 +44,7 @@ export function ViewportTypewriter({
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [shouldReduceMotion])
 
   const Tag = as as any
   return (
@@ -46,10 +53,15 @@ export function ViewportTypewriter({
       className={className}
       style={{ minHeight: "1.2em" }}
     >
-      {visible ? (
-        <Typewriter text={text} delay={delay} speed={speed} showCursor={showCursor} />
+      {shouldAnimate ? (
+        <>
+          <span className="sr-only">{text}</span>
+          <span aria-hidden="true">
+            <Typewriter text={text} delay={delay} speed={speed} showCursor={showCursor} />
+          </span>
+        </>
       ) : (
-        <span style={{ opacity: 0 }}>{text}</span>
+        <span>{text}</span>
       )}
     </Tag>
   )

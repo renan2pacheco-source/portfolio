@@ -25,9 +25,13 @@ const architectsDaughter = Architects_Daughter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://renan2pacheco-source.github.io"),
   title: "Renan Nunes Pacheco — Currículo",
   description:
     "Currículo profissional de Renan Nunes Pacheco — Suporte técnico, atendimento, vendas, criação de websites, CRM, agentes de IA e design gráfico. Vale do Anari, RO.",
+  alternates: {
+    canonical: "/portfolio/",
+  },
   authors: [{ name: "Renan Nunes Pacheco" }],
   keywords: [
     "Renan Pacheco",
@@ -47,6 +51,24 @@ export const metadata: Metadata = {
     description:
       "Suporte técnico, atendimento, vendas, criação de websites, CRM, agentes de IA e design gráfico. Vale do Anari, RO.",
     type: "website",
+    url: "/portfolio/",
+    siteName: "Renan Nunes Pacheco — Currículo",
+    locale: "pt_BR",
+    images: [
+      {
+        url: "/portfolio/sticker-icons/profile-photo.png",
+        width: 600,
+        height: 600,
+        alt: "Foto de perfil de Renan Nunes Pacheco",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Renan Nunes Pacheco — Currículo",
+    description:
+      "Suporte técnico, atendimento, vendas, criação de websites, CRM, agentes de IA e design gráfico. Vale do Anari, RO.",
+    images: ["/portfolio/sticker-icons/profile-photo.png"],
   },
 }
 
